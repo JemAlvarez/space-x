@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "jshelper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JemAlvarez/JsHelper",
+      "state" : {
+        "branch" : "master",
+        "revision" : "9aeee8cc35e043433e7c52db69c7dfb8c6a3a825"
+      }
+    },
+    {
+      "identity" : "onboarder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JemAlvarez/onboarder",
+      "state" : {
+        "branch" : "master",
+        "revision" : "1eb9cd71315ff430a72f28a77d20a8cc0cf7f6ef"
+      }
+    }
+  ],
+  "version" : 2
+}
