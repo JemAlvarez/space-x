@@ -14,6 +14,8 @@
 		CA6584A32808D18A00CF6EA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6584A22808D18A00CF6EA3 /* Assets.xcassets */; };
 		CA6584AF2808D39E00CF6EA3 /* JsHelper in Frameworks */ = {isa = PBXBuildFile; productRef = CA6584AE2808D39E00CF6EA3 /* JsHelper */; };
 		CA6584B62808D65C00CF6EA3 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584B52808D65C00CF6EA3 /* UIColorExtensions.swift */; };
+		CA6584B92808D71700CF6EA3 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584B82808D71700CF6EA3 /* APIModel.swift */; };
+		CA6584BB2808DF6200CF6EA3 /* CapsuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584BA2808DF6200CF6EA3 /* CapsuleModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		CA6584A22808D18A00CF6EA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA6584A72808D18A00CF6EA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA6584B52808D65C00CF6EA3 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		CA6584B82808D71700CF6EA3 /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
+		CA6584BA2808DF6200CF6EA3 /* CapsuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				CA6584A72808D18A00CF6EA3 /* Info.plist */,
-				CA65849D2808D18900CF6EA3 /* MainViewController.swift */,
 				CA6584A22808D18A00CF6EA3 /* Assets.xcassets */,
 				CA6584B72808D6AB00CF6EA3 /* App */,
 				CA6584B22808D46800CF6EA3 /* Models */,
@@ -80,6 +83,7 @@
 		CA6584B12808D44F00CF6EA3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CA65849D2808D18900CF6EA3 /* MainViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -87,6 +91,7 @@
 		CA6584B22808D46800CF6EA3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CA6584BA2808DF6200CF6EA3 /* CapsuleModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				CA6584B42808D65000CF6EA3 /* Extensions */,
+				CA6584B82808D71700CF6EA3 /* APIModel.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -127,6 +133,7 @@
 				CA6584922808D18900CF6EA3 /* Sources */,
 				CA6584932808D18900CF6EA3 /* Frameworks */,
 				CA6584942808D18900CF6EA3 /* Resources */,
+				CA6584BC2808E7EB00CF6EA3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -188,6 +195,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CA6584BC2808E7EB00CF6EA3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CA6584922808D18900CF6EA3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -197,6 +224,8 @@
 				CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */,
 				CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */,
 				CA6584B62808D65C00CF6EA3 /* UIColorExtensions.swift in Sources */,
+				CA6584B92808D71700CF6EA3 /* APIModel.swift in Sources */,
+				CA6584BB2808DF6200CF6EA3 /* CapsuleModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +371,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -369,6 +399,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
