@@ -13,8 +13,8 @@ class MainViewController: UIViewController {
         view.addSubview(label)
         label.addConstraints(equalTo: view)
 
-//        APIModel.shared.fetchCapsules(with: "5e9e2c5bf35918ed873b2664") { capsules in
-//            self.label.text = "\(capsules[0].status)"
-//        }
+        APIModel.shared.fetchCompany { company in
+            self.label.text = company.cto_propulsion
+        }
     }
 }

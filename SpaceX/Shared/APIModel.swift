@@ -34,6 +34,20 @@ extension APIModel {
             }
         }
     }
+
+    // MARK: - Fetch company
+    func fetchCompany(completion: @escaping (CompanyModel) -> Void) {
+        makeRequest(for: .company, with: nil) { data in
+            guard let data = data else { return }
+
+            do {
+                let company = try JSONDecoder().decode(CompanyModel.self, from: data)
+                completion(company)
+            } catch {
+                error.printError(for: "Decoding company")
+            }
+        }
+    }
 }
 
 // MARK: - Request

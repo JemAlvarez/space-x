@@ -16,6 +16,7 @@
 		CA6584B62808D65C00CF6EA3 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584B52808D65C00CF6EA3 /* UIColorExtensions.swift */; };
 		CA6584B92808D71700CF6EA3 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584B82808D71700CF6EA3 /* APIModel.swift */; };
 		CA6584BB2808DF6200CF6EA3 /* CapsuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584BA2808DF6200CF6EA3 /* CapsuleModel.swift */; };
+		CA6584BE2808EDA500CF6EA3 /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584BD2808EDA500CF6EA3 /* CompanyModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		CA6584B52808D65C00CF6EA3 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		CA6584B82808D71700CF6EA3 /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		CA6584BA2808DF6200CF6EA3 /* CapsuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleModel.swift; sourceTree = "<group>"; };
+		CA6584BD2808EDA500CF6EA3 /* CompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				CA6584BA2808DF6200CF6EA3 /* CapsuleModel.swift */,
+				CA6584BD2808EDA500CF6EA3 /* CompanyModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				CA65849E2808D18900CF6EA3 /* MainViewController.swift in Sources */,
 				CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */,
 				CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */,
+				CA6584BE2808EDA500CF6EA3 /* CompanyModel.swift in Sources */,
 				CA6584B62808D65C00CF6EA3 /* UIColorExtensions.swift in Sources */,
 				CA6584B92808D71700CF6EA3 /* APIModel.swift in Sources */,
 				CA6584BB2808DF6200CF6EA3 /* CapsuleModel.swift in Sources */,
