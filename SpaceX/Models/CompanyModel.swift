@@ -16,7 +16,7 @@ struct CompanyModel: Decodable {
     let cto: String
     let coo: String
     let cto_propulsion: String
-    let valuation: Int
+    let valuation: Double
     let summary: String
     let id: String
 

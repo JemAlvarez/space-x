@@ -10,66 +10,81 @@ struct APIModel {
     private let baseURLString = "https://api.spacexdata.com/v4/"
 }
 
-// MARK: - Routes Requests
-extension APIModel {
-    // MARK: - Fetch capsules
-    func fetchCapsules(with id: String? = nil, completion: @escaping ([CapsuleModel]) -> Void) {
-        var output: [CapsuleModel] = []
-
-        makeRequest(for: .capsules, with: id) { data in
-            guard let data = data else { return }
-
-            do {
-                if id != nil {
-                    let capsule = try JSONDecoder().decode(CapsuleModel.self, from: data)
-                    output = [capsule]
-                } else {
-                    let capsules = try JSONDecoder().decode([CapsuleModel].self, from: data)
-                    output = capsules
-                }
-
-                completion(output)
-            } catch {
-                error.printError(for: "Decoding capsules")
-            }
-        }
-    }
-
-    // MARK: - Fetch company
-    func fetchCompany(completion: @escaping (CompanyModel) -> Void) {
-        makeRequest(for: .company, with: nil) { data in
-            guard let data = data else { return }
-
-            do {
-                let company = try JSONDecoder().decode(CompanyModel.self, from: data)
-                completion(company)
-            } catch {
-                error.printError(for: "Decoding company")
-            }
-        }
-    }
-}
-
 // MARK: - Request
 extension APIModel {
-    private func makeRequest(for route: Routes, with id: String?, completion: @escaping (Data?) -> Void) {
+    // Make request
+    func fetch<T: Decodable>(for route: Routes, with id: String? = nil, completion: @escaping ([T]) -> Void) {
+        // build urlString
         let urlString = "\(baseURLString)\(route.rawValue)/\(id ?? "")"
-
+        // urlString to URL
         guard let url = URL(string: urlString) else { return }
 
-        url.requestData { data in
+        // request and decode
+        // if its Company, or Roadster, or has an id, request only one and return it in a one item array
+        if T.self == CompanyModel.self || T.self == RoadsterModel.self || id != nil {
+            url.requestDataAndDecode { (decodedData: T) in
+                DispatchQueue.main.async {
+                    completion([decodedData])
+                }
+            }
+        } else {
+            url.requestDataAndDecode { (decodedData: [T]) in
+                DispatchQueue.main.async {
+                    completion(decodedData)
+                }
+            }
+        }
+    }
+
+    // Get launches
+    func fetchLaunches(for param: LaunchTime = .all, completion: @escaping ([LaunchModel]) -> Void) {
+        // build urlString
+        let urlString = "\(baseURLString)\(Routes.launches)/\(param.rawValue)"
+        // urlString to URL
+        guard let url = URL(string: urlString) else {return}
+
+        // request
+        switch param {
+        case .latest, .next:
+            url.requestDataAndDecode { (decodedData: LaunchModel) in
+                DispatchQueue.main.async {
+                    completion([decodedData])
+                }
+            }
+        case .past, .upcoming, .all:
+            url.requestDataAndDecode { (decodedData: [LaunchModel]) in
+                DispatchQueue.main.async {
+                    completion(decodedData)
+                }
+            }
+        }
+    }
+
+    func fetchLaunches(with id: String, completion: @escaping (LaunchModel) -> Void) {
+        // build urlString
+        let urlString = "\(baseURLString)\(Routes.launches)/\(id)"
+        // urlString to URL
+        guard let url = URL(string: urlString) else {return}
+
+        // request
+        url.requestDataAndDecode { (decodedData: LaunchModel) in
             DispatchQueue.main.async {
-                completion(data)
+                completion(decodedData)
             }
         }
     }
 }
 
-// MARK: - Routes
+// MARK: - Routes and LaunchParam
 extension APIModel {
     enum Routes: String {
         case capsules, company, cores, crew, dragons,
              landpads, launches, launchpads, payloads,
              roadster, rockets, ships, starlink, history
+    }
+
+    enum LaunchTime: String {
+        case latest, next, past, upcoming
+        case all = ""
     }
 }

@@ -13,10 +13,20 @@
 		CA6584A12808D18900CF6EA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA65849F2808D18900CF6EA3 /* LaunchScreen.storyboard */; };
 		CA6584A32808D18A00CF6EA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6584A22808D18A00CF6EA3 /* Assets.xcassets */; };
 		CA6584AF2808D39E00CF6EA3 /* JsHelper in Frameworks */ = {isa = PBXBuildFile; productRef = CA6584AE2808D39E00CF6EA3 /* JsHelper */; };
-		CA6584B62808D65C00CF6EA3 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584B52808D65C00CF6EA3 /* UIColorExtensions.swift */; };
 		CA6584B92808D71700CF6EA3 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584B82808D71700CF6EA3 /* APIModel.swift */; };
 		CA6584BB2808DF6200CF6EA3 /* CapsuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584BA2808DF6200CF6EA3 /* CapsuleModel.swift */; };
 		CA6584BE2808EDA500CF6EA3 /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584BD2808EDA500CF6EA3 /* CompanyModel.swift */; };
+		CA6584C0280A29A900CF6EA3 /* CoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584BF280A29A900CF6EA3 /* CoreModel.swift */; };
+		CA6584C2280A2B8800CF6EA3 /* CrewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584C1280A2B8800CF6EA3 /* CrewModel.swift */; };
+		CA6584C4280A2C6700CF6EA3 /* DragonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584C3280A2C6700CF6EA3 /* DragonModel.swift */; };
+		CA6584C6280A304400CF6EA3 /* LandPadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584C5280A304400CF6EA3 /* LandPadModel.swift */; };
+		CA6584C8280A335800CF6EA3 /* LaunchPadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584C7280A335800CF6EA3 /* LaunchPadModel.swift */; };
+		CA6584CA280A3B5C00CF6EA3 /* PayloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584C9280A3B5C00CF6EA3 /* PayloadModel.swift */; };
+		CA6584CC280A3DAE00CF6EA3 /* RoadsterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584CB280A3DAE00CF6EA3 /* RoadsterModel.swift */; };
+		CA6584CE280A404100CF6EA3 /* ShipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584CD280A404100CF6EA3 /* ShipModel.swift */; };
+		CA6584D0280A45CC00CF6EA3 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584CF280A45CC00CF6EA3 /* HistoryModel.swift */; };
+		CA6584D2280A476B00CF6EA3 /* LaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584D1280A476B00CF6EA3 /* LaunchModel.swift */; };
+		CA6584D4280A502D00CF6EA3 /* RocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584D3280A502D00CF6EA3 /* RocketModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,10 +37,20 @@
 		CA6584A02808D18900CF6EA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA6584A22808D18A00CF6EA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA6584A72808D18A00CF6EA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA6584B52808D65C00CF6EA3 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		CA6584B82808D71700CF6EA3 /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		CA6584BA2808DF6200CF6EA3 /* CapsuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleModel.swift; sourceTree = "<group>"; };
 		CA6584BD2808EDA500CF6EA3 /* CompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
+		CA6584BF280A29A900CF6EA3 /* CoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreModel.swift; sourceTree = "<group>"; };
+		CA6584C1280A2B8800CF6EA3 /* CrewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewModel.swift; sourceTree = "<group>"; };
+		CA6584C3280A2C6700CF6EA3 /* DragonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonModel.swift; sourceTree = "<group>"; };
+		CA6584C5280A304400CF6EA3 /* LandPadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandPadModel.swift; sourceTree = "<group>"; };
+		CA6584C7280A335800CF6EA3 /* LaunchPadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPadModel.swift; sourceTree = "<group>"; };
+		CA6584C9280A3B5C00CF6EA3 /* PayloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadModel.swift; sourceTree = "<group>"; };
+		CA6584CB280A3DAE00CF6EA3 /* RoadsterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadsterModel.swift; sourceTree = "<group>"; };
+		CA6584CD280A404100CF6EA3 /* ShipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipModel.swift; sourceTree = "<group>"; };
+		CA6584CF280A45CC00CF6EA3 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		CA6584D1280A476B00CF6EA3 /* LaunchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModel.swift; sourceTree = "<group>"; };
+		CA6584D3280A502D00CF6EA3 /* RocketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +115,17 @@
 			children = (
 				CA6584BA2808DF6200CF6EA3 /* CapsuleModel.swift */,
 				CA6584BD2808EDA500CF6EA3 /* CompanyModel.swift */,
+				CA6584BF280A29A900CF6EA3 /* CoreModel.swift */,
+				CA6584C1280A2B8800CF6EA3 /* CrewModel.swift */,
+				CA6584C3280A2C6700CF6EA3 /* DragonModel.swift */,
+				CA6584C5280A304400CF6EA3 /* LandPadModel.swift */,
+				CA6584C7280A335800CF6EA3 /* LaunchPadModel.swift */,
+				CA6584C9280A3B5C00CF6EA3 /* PayloadModel.swift */,
+				CA6584CB280A3DAE00CF6EA3 /* RoadsterModel.swift */,
+				CA6584CD280A404100CF6EA3 /* ShipModel.swift */,
+				CA6584CF280A45CC00CF6EA3 /* HistoryModel.swift */,
+				CA6584D1280A476B00CF6EA3 /* LaunchModel.swift */,
+				CA6584D3280A502D00CF6EA3 /* RocketModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -111,7 +142,6 @@
 		CA6584B42808D65000CF6EA3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CA6584B52808D65C00CF6EA3 /* UIColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -214,7 +244,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -223,11 +253,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA6584CA280A3B5C00CF6EA3 /* PayloadModel.swift in Sources */,
+				CA6584CE280A404100CF6EA3 /* ShipModel.swift in Sources */,
+				CA6584CC280A3DAE00CF6EA3 /* RoadsterModel.swift in Sources */,
 				CA65849E2808D18900CF6EA3 /* MainViewController.swift in Sources */,
 				CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */,
 				CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */,
+				CA6584C0280A29A900CF6EA3 /* CoreModel.swift in Sources */,
+				CA6584C4280A2C6700CF6EA3 /* DragonModel.swift in Sources */,
+				CA6584D2280A476B00CF6EA3 /* LaunchModel.swift in Sources */,
+				CA6584D4280A502D00CF6EA3 /* RocketModel.swift in Sources */,
+				CA6584C2280A2B8800CF6EA3 /* CrewModel.swift in Sources */,
+				CA6584C6280A304400CF6EA3 /* LandPadModel.swift in Sources */,
 				CA6584BE2808EDA500CF6EA3 /* CompanyModel.swift in Sources */,
-				CA6584B62808D65C00CF6EA3 /* UIColorExtensions.swift in Sources */,
+				CA6584D0280A45CC00CF6EA3 /* HistoryModel.swift in Sources */,
+				CA6584C8280A335800CF6EA3 /* LaunchPadModel.swift in Sources */,
 				CA6584B92808D71700CF6EA3 /* APIModel.swift in Sources */,
 				CA6584BB2808DF6200CF6EA3 /* CapsuleModel.swift in Sources */,
 			);
