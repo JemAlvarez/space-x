@@ -133,17 +133,9 @@
 		CA6584B32808D47000CF6EA3 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				CA6584B42808D65000CF6EA3 /* Extensions */,
 				CA6584B82808D71700CF6EA3 /* APIModel.swift */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		CA6584B42808D65000CF6EA3 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CA6584B72808D6AB00CF6EA3 /* App */ = {
