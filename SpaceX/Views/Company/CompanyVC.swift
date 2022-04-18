@@ -6,7 +6,7 @@ import JsHelper
 class CompanyVC: UIViewController {
     private var companyData: CompanyModel? {
         didSet {
-            // TODO: Data loaded
+            tableView.reloadData()
         }
     }
     private var historyData: [HistoryModel] = [] {
@@ -18,7 +18,10 @@ class CompanyVC: UIViewController {
     // MARK: - views
     @TAMIC private var tableView: UITableView = {
         let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        // register cells
+        table.register(CompanyTableCell.self, forCellReuseIdentifier: CompanyTableCell.id)
+        // no dividers
+        table.separatorColor = .clear
         return table
     }()
 
@@ -37,7 +40,7 @@ extension CompanyVC {
     // configure company view
     private func configureView() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "SpaceX"
+        navigationItem.title = "Company"
     }
 
     // configure table view
@@ -54,16 +57,25 @@ extension CompanyVC {
 // MARK: - delegate
 extension CompanyVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return 2
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let label = UILabel()
-        label.text = "fl;dsaj f;lasdkj;alsdkf ;lasdkf;asfkjasdf;l kajs;flsjld;fa ;ldsfa;l f; jdflask jdf;alskjf;asdfasjf;kasd;f lkjsadf;l ksdf;l  fsl;d kfj;sad lf;lsadkfasaf ajfj a jskfasf;lakjf;l"
-        cell.addSubview(label)
-        label.addConstraints(equalTo: cell)
-        label.numberOfLines = 0
+        let companyCell = makeCompanyCell(indexPath: indexPath)
+        return companyCell
+    }
+}
+
+// MARK: - make cells
+extension CompanyVC {
+    func makeCompanyCell(indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CompanyTableCell.id, for: indexPath)
+
+        if let companyCell = cell as? CompanyTableCell, let companyData = companyData {
+            companyCell.setupData(with: companyData)
+            return companyCell
+        }
+
         return cell
     }
 }
