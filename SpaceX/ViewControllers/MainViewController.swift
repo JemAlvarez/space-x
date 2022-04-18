@@ -47,18 +47,20 @@ class MainViewController: UIViewController {
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
-        APIModel.shared.fetch(for: .rockets) { (rockets: [RocketModel]) in
-            if !rockets.isEmpty {
-                self.label.text = rockets[0].name
-                self.currentID = rockets[0].id
+        Task.init {
+            let rockets: LaunchModel? = await APIModel.shared.fetchLaunches(with: "6243ade2af52800c6e919255")
+            
+            if let rockets = rockets {
+                self.label.text = rockets.name
+                self.currentID = rockets.id
 
-                if !rockets[0].flickr_images.isEmpty {
-                    guard let data = try? Data(contentsOf: URL(string: rockets[0].flickr_images[0])!) else {return}
-                    guard let uiImage = UIImage(data: data) else {return}
-                    DispatchQueue.main.async {
-                        self.image.image = uiImage
-                    }
-                }
+//                if !rockets[0].flickr_images.isEmpty {
+//                    guard let data = try? Data(contentsOf: URL(string: rockets[0].flickr_images[0])!) else {return}
+//                    guard let uiImage = UIImage(data: data) else {return}
+//                    DispatchQueue.main.async {
+//                        self.image.image = uiImage
+//                    }
+//                }
             }
         }
     }

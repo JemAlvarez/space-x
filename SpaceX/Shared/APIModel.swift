@@ -13,65 +13,47 @@ struct APIModel {
 // MARK: - Request
 extension APIModel {
     // Make request
-    func fetch<T: Decodable>(for route: Routes, with id: String? = nil, completion: @escaping ([T]) -> Void) {
+    func fetch<T: Decodable>(for route: Routes, with id: String? = nil) async -> [T] {
         // build urlString
         let urlString = "\(baseURLString)\(route.rawValue)/\(id ?? "")"
         // urlString to URL
-        guard let url = URL(string: urlString) else { return }
+        guard let url = URL(string: urlString) else { return [] }
 
-        // request and decode
-        // if its Company, or Roadster, or has an id, request only one and return it in a one item array
         if T.self == CompanyModel.self || T.self == RoadsterModel.self || id != nil {
-            url.requestDataAndDecode { (decodedData: T) in
-                DispatchQueue.main.async {
-                    completion([decodedData])
-                }
-            }
+            let decodedData: T = await url.requestDataAndDecode()
+            return [decodedData]
         } else {
-            url.requestDataAndDecode { (decodedData: [T]) in
-                DispatchQueue.main.async {
-                    completion(decodedData)
-                }
-            }
+            let decodedData: [T] = await url.requestDataAndDecode()
+            return decodedData
         }
     }
 
     // Get launches
-    func fetchLaunches(for param: LaunchTime = .all, completion: @escaping ([LaunchModel]) -> Void) {
+    func fetchLaunches(for param: LaunchTime = .all) async -> [LaunchModel] {
         // build urlString
         let urlString = "\(baseURLString)\(Routes.launches)/\(param.rawValue)"
         // urlString to URL
-        guard let url = URL(string: urlString) else {return}
+        guard let url = URL(string: urlString) else { return [] }
 
         // request
         switch param {
         case .latest, .next:
-            url.requestDataAndDecode { (decodedData: LaunchModel) in
-                DispatchQueue.main.async {
-                    completion([decodedData])
-                }
-            }
+            let launch: LaunchModel = await url.requestDataAndDecode()
+            return [launch]
         case .past, .upcoming, .all:
-            url.requestDataAndDecode { (decodedData: [LaunchModel]) in
-                DispatchQueue.main.async {
-                    completion(decodedData)
-                }
-            }
+            let launches: [LaunchModel] = await url.requestDataAndDecode()
+            return launches
         }
     }
 
-    func fetchLaunches(with id: String, completion: @escaping (LaunchModel) -> Void) {
+    func fetchLaunches(with id: String) async -> LaunchModel? {
         // build urlString
         let urlString = "\(baseURLString)\(Routes.launches)/\(id)"
         // urlString to URL
-        guard let url = URL(string: urlString) else {return}
-
+        guard let url = URL(string: urlString) else { return nil }
         // request
-        url.requestDataAndDecode { (decodedData: LaunchModel) in
-            DispatchQueue.main.async {
-                completion(decodedData)
-            }
-        }
+        let launch: LaunchModel = await url.requestDataAndDecode()
+        return launch
     }
 }
 
