@@ -7,6 +7,7 @@ struct APIModel {
     // MARK: - Properties
     static let shared = APIModel()
 
+    /// https://github.com/r-spacex/SpaceX-API
     private let baseURLString = "https://api.spacexdata.com/v4/"
 }
 

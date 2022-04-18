@@ -19,6 +19,9 @@ class SettingsVC: UIViewController {
 
         table.delegate = self
         table.dataSource = self
+
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "TEST"
     }
 }
 

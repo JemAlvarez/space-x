@@ -3,7 +3,7 @@
 import UIKit
 
 class TabBarVC: UITabBarController {
-    private let tabs: [String] = ["launches", "crew", "vehicles", "company", "settings"]
+    private let tabs: [String] = ["Launches", "Crew", "Vehicles", "SpaceX", "Settings"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,23 +17,23 @@ extension TabBarVC {
     // MARK: - return tab VCs
     func getTabViewControllers() -> [UIViewController] {
         // Launches
-        let launchesVC = LaunchesVC()
+        let launchesVC = UINavigationController(rootViewController: LaunchesVC())
         // Crew
-        let crewVC = CrewVC()
+        let crewVC = UINavigationController(rootViewController: CrewVC())
         // Vehicles: capsules, cores, dragons, landpads, launchpads, payloads, roadster, rockets, ships
-        let vehiclesVC = VehiclesVC()
+        let vehiclesVC = UINavigationController(rootViewController: VehiclesVC())
         // Company: Company, History
-        let companyVC = CompanyVC()
+        let companyVC = UINavigationController(rootViewController: CompanyVC())
         // Settings
-        let settingsVC = SettingsVC()
+        let settingsVC = UINavigationController(rootViewController: SettingsVC())
 
         // all VCs
         let vcs = [launchesVC, crewVC, vehiclesVC, companyVC, settingsVC]
 
         // set VCs titles
         for i in 0..<tabs.count {
-            vcs[i].tabBarItem.title = tabs[i].capitalized
-            vcs[i].tabBarItem.image = UIImage(named: tabs[i])
+            vcs[i].tabBarItem.title = tabs[i]
+            vcs[i].tabBarItem.image = UIImage(named: tabs[i].lowercased())
             vcs[i].tabBarItem.tag = i
         }
 
