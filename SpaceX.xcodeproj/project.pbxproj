@@ -89,7 +89,7 @@
 				CA6584B72808D6AB00CF6EA3 /* App */,
 				CA6584B22808D46800CF6EA3 /* Models */,
 				CA6584B32808D47000CF6EA3 /* Shared */,
-				CA6584B12808D44F00CF6EA3 /* ViewControllers */,
+				CA6584B12808D44F00CF6EA3 /* ViewModels */,
 				CA6584B02808D44100CF6EA3 /* Views */,
 			);
 			path = SpaceX;
@@ -98,16 +98,16 @@
 		CA6584B02808D44100CF6EA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA65849D2808D18900CF6EA3 /* MainViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		CA6584B12808D44F00CF6EA3 /* ViewControllers */ = {
+		CA6584B12808D44F00CF6EA3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				CA65849D2808D18900CF6EA3 /* MainViewController.swift */,
 			);
-			path = ViewControllers;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		CA6584B22808D46800CF6EA3 /* Models */ = {
