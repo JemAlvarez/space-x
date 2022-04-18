@@ -62,7 +62,7 @@ extension APIModel {
     enum Routes: String {
         case capsules, company, cores, crew, dragons,
              landpads, launches, launchpads, payloads,
-             roadster, rockets, ships, starlink, history
+             roadster, rockets, ships, history
     }
 
     enum LaunchTime: String {

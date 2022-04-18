@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584992808D18900CF6EA3 /* AppDelegate.swift */; };
 		CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */; };
-		CA65849E2808D18900CF6EA3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA65849D2808D18900CF6EA3 /* MainViewController.swift */; };
 		CA6584A12808D18900CF6EA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA65849F2808D18900CF6EA3 /* LaunchScreen.storyboard */; };
 		CA6584A32808D18A00CF6EA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6584A22808D18A00CF6EA3 /* Assets.xcassets */; };
 		CA6584AF2808D39E00CF6EA3 /* JsHelper in Frameworks */ = {isa = PBXBuildFile; productRef = CA6584AE2808D39E00CF6EA3 /* JsHelper */; };
@@ -27,13 +26,18 @@
 		CA6584D0280A45CC00CF6EA3 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584CF280A45CC00CF6EA3 /* HistoryModel.swift */; };
 		CA6584D2280A476B00CF6EA3 /* LaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584D1280A476B00CF6EA3 /* LaunchModel.swift */; };
 		CA6584D4280A502D00CF6EA3 /* RocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584D3280A502D00CF6EA3 /* RocketModel.swift */; };
+		CA6584D6280D144500CF6EA3 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584D5280D144500CF6EA3 /* TabBarVC.swift */; };
+		CA6584D8280D164D00CF6EA3 /* LaunchesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584D7280D164D00CF6EA3 /* LaunchesVC.swift */; };
+		CA6584DA280D167A00CF6EA3 /* CrewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584D9280D167A00CF6EA3 /* CrewVC.swift */; };
+		CA6584DC280D169800CF6EA3 /* VehiclesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584DB280D169800CF6EA3 /* VehiclesVC.swift */; };
+		CA6584DE280D16CA00CF6EA3 /* CompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584DD280D16CA00CF6EA3 /* CompanyVC.swift */; };
+		CA6584E1280D16F000CF6EA3 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584E0280D16F000CF6EA3 /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CA6584962808D18900CF6EA3 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6584992808D18900CF6EA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA65849D2808D18900CF6EA3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CA6584A02808D18900CF6EA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA6584A22808D18A00CF6EA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA6584A72808D18A00CF6EA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +55,12 @@
 		CA6584CF280A45CC00CF6EA3 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		CA6584D1280A476B00CF6EA3 /* LaunchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModel.swift; sourceTree = "<group>"; };
 		CA6584D3280A502D00CF6EA3 /* RocketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketModel.swift; sourceTree = "<group>"; };
+		CA6584D5280D144500CF6EA3 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		CA6584D7280D164D00CF6EA3 /* LaunchesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesVC.swift; sourceTree = "<group>"; };
+		CA6584D9280D167A00CF6EA3 /* CrewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewVC.swift; sourceTree = "<group>"; };
+		CA6584DB280D169800CF6EA3 /* VehiclesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesVC.swift; sourceTree = "<group>"; };
+		CA6584DD280D16CA00CF6EA3 /* CompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyVC.swift; sourceTree = "<group>"; };
+		CA6584E0280D16F000CF6EA3 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +108,12 @@
 		CA6584B02808D44100CF6EA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CA65849D2808D18900CF6EA3 /* MainViewController.swift */,
+				CA6584D5280D144500CF6EA3 /* TabBarVC.swift */,
+				CA6584D7280D164D00CF6EA3 /* LaunchesVC.swift */,
+				CA6584D9280D167A00CF6EA3 /* CrewVC.swift */,
+				CA6584DB280D169800CF6EA3 /* VehiclesVC.swift */,
+				CA6584DD280D16CA00CF6EA3 /* CompanyVC.swift */,
+				CA6584E0280D16F000CF6EA3 /* SettingsVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,18 +260,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA6584DE280D16CA00CF6EA3 /* CompanyVC.swift in Sources */,
 				CA6584CA280A3B5C00CF6EA3 /* PayloadModel.swift in Sources */,
 				CA6584CE280A404100CF6EA3 /* ShipModel.swift in Sources */,
 				CA6584CC280A3DAE00CF6EA3 /* RoadsterModel.swift in Sources */,
-				CA65849E2808D18900CF6EA3 /* MainViewController.swift in Sources */,
+				CA6584DC280D169800CF6EA3 /* VehiclesVC.swift in Sources */,
+				CA6584D6280D144500CF6EA3 /* TabBarVC.swift in Sources */,
 				CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */,
 				CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */,
 				CA6584C0280A29A900CF6EA3 /* CoreModel.swift in Sources */,
 				CA6584C4280A2C6700CF6EA3 /* DragonModel.swift in Sources */,
 				CA6584D2280A476B00CF6EA3 /* LaunchModel.swift in Sources */,
+				CA6584E1280D16F000CF6EA3 /* SettingsVC.swift in Sources */,
 				CA6584D4280A502D00CF6EA3 /* RocketModel.swift in Sources */,
 				CA6584C2280A2B8800CF6EA3 /* CrewModel.swift in Sources */,
+				CA6584D8280D164D00CF6EA3 /* LaunchesVC.swift in Sources */,
 				CA6584C6280A304400CF6EA3 /* LandPadModel.swift in Sources */,
+				CA6584DA280D167A00CF6EA3 /* CrewVC.swift in Sources */,
 				CA6584BE2808EDA500CF6EA3 /* CompanyModel.swift in Sources */,
 				CA6584D0280A45CC00CF6EA3 /* HistoryModel.swift in Sources */,
 				CA6584C8280A335800CF6EA3 /* LaunchPadModel.swift in Sources */,
