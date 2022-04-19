@@ -8,13 +8,26 @@ class CompanyVC: UIViewController {
     private var historyData: [HistoryModel] = []
 
     // MARK: - views
-    @TAMIC private var tableView: UITableView = {
+    @TAMIC private var companyTableView: UITableView = {
         let table = UITableView()
         // register cells
         table.register(CompanyTableCell.self, forCellReuseIdentifier: CompanyTableCell.id)
         // no dividers
         table.separatorColor = .clear
         return table
+    }()
+
+    @TAMIC private var historyTableView: UITableView = {
+        let table = UITableView()
+        return table
+    }()
+
+    lazy var segmentedControl: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["Company", "History"])
+        sc.selectedSegmentIndex = 0
+        sc.addTarget(self, action: #selector(segmentedControlDidChange), for: .valueChanged)
+        sc.translatesAutoresizingMaskIntoConstraints = false
+        return sc
     }()
 
     @TAMIC private var ai = UIActivityIndicatorView()
@@ -25,18 +38,11 @@ class CompanyVC: UIViewController {
 
         addLoadingIndicator()
         fetchData()
-        configureView()
     }
 }
 
 // MARK: - configuration
 extension CompanyVC {
-    // configure company view
-    private func configureView() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Company"
-    }
-
     // add loading indicator
     private func addLoadingIndicator() {
         view.addSubview(ai)
@@ -49,14 +55,34 @@ extension CompanyVC {
         ])
     }
 
+    private func addSegmentedControl() {
+        navigationItem.titleView = segmentedControl
+        historyTableView.isHidden = true
+    }
+
     // configure table view
-    private func configureTableView() {
+    private func configureTableViews() {
+        addSegmentedControl()
         // delegate & datasource
-        tableView.delegate = self
-        tableView.dataSource = self
-        // add sub view and constraints
-        view.addSubview(tableView)
-        tableView.addConstraints(equalTo: view)
+        companyTableView.delegate = self
+        companyTableView.dataSource = self
+        // add sub view and constraints for company table view
+        view.addSubview(companyTableView)
+        companyTableView.addConstraints(equalTo: view)
+        // add sub view and constraints for history table view
+        view.addSubview(historyTableView)
+        historyTableView.addConstraints(equalTo: view)
+    }
+
+    // selectors
+    @objc func segmentedControlDidChange(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            companyTableView.isHidden = false
+            historyTableView.isHidden = true
+        } else if sender.selectedSegmentIndex == 1 {
+            companyTableView.isHidden = true
+            historyTableView.isHidden = false
+        }
     }
 }
 
@@ -75,7 +101,7 @@ extension CompanyVC: UITableViewDelegate, UITableViewDataSource {
 // MARK: - make cells
 extension CompanyVC {
     func makeCompanyCell(indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CompanyTableCell.id, for: indexPath)
+        let cell = companyTableView.dequeueReusableCell(withIdentifier: CompanyTableCell.id, for: indexPath)
 
         if let companyCell = cell as? CompanyTableCell, let companyData = companyData {
             companyCell.setupData(with: companyData)
@@ -109,7 +135,9 @@ extension CompanyVC {
     }
 
     private func dataDidLoad() {
-        ai.removeFromSuperview()
-        configureTableView()
+        UIView.animate(withDuration: 0.25) {
+            self.ai.removeFromSuperview()
+            self.configureTableViews()
+        }
     }
 }
