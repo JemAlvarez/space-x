@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CA241AC9280DF47A008005DE /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AC8280DF47A008005DE /* CGFloatExtensions.swift */; };
 		CA241ACB280E17C2008005DE /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241ACA280E17C2008005DE /* DoubleExtensions.swift */; };
+		CA241ACD280E56F9008005DE /* UILinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241ACC280E56F9008005DE /* UILinkButton.swift */; };
 		CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584992808D18900CF6EA3 /* AppDelegate.swift */; };
 		CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */; };
 		CA6584A12808D18900CF6EA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA65849F2808D18900CF6EA3 /* LaunchScreen.storyboard */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		CA241AC8280DF47A008005DE /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 		CA241ACA280E17C2008005DE /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		CA241ACC280E56F9008005DE /* UILinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILinkButton.swift; sourceTree = "<group>"; };
 		CA6584962808D18900CF6EA3 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6584992808D18900CF6EA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				CA241AC7280DF464008005DE /* Extensions */,
 				CA6584B82808D71700CF6EA3 /* APIModel.swift */,
+				CA241ACC280E56F9008005DE /* UILinkButton.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA6584DE280D16CA00CF6EA3 /* CompanyVC.swift in Sources */,
+				CA241ACD280E56F9008005DE /* UILinkButton.swift in Sources */,
 				CA6584CA280A3B5C00CF6EA3 /* PayloadModel.swift in Sources */,
 				CA241AC9280DF47A008005DE /* CGFloatExtensions.swift in Sources */,
 				CA6584CE280A404100CF6EA3 /* ShipModel.swift in Sources */,

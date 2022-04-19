@@ -28,6 +28,10 @@ class CompanyTableCell: UITableViewCell {
     @TAMIC var ctoLabel = UILabel()
     @TAMIC var ctoPropLabel = UILabel()
     @TAMIC var cooLabel = UILabel()
+    @TAMIC var websiteLink = UILinkButton()
+    @TAMIC var twitterLink = UILinkButton()
+    @TAMIC var twitterElonLink = UILinkButton()
+    @TAMIC var flickrLink = UILinkButton()
 
     // MARK: - setup
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -35,7 +39,7 @@ class CompanyTableCell: UITableViewCell {
 
         configureCell()
         displayUI()
-        makeCellResizable(with: cooLabel)
+        makeCellResizable(with: flickrLink)
     }
 
     required init?(coder: NSCoder) {
@@ -56,10 +60,8 @@ extension CompanyTableCell {
         // People
         people()
         // Links
-            // Website
-            // Twitter
-            // Elon Twitter
-            // Flickr
+        links()
+
     }
 
     // MARK: - logo
@@ -69,12 +71,13 @@ extension CompanyTableCell {
 
         // set image
         logoImageView.image = logoImage
+        logoImageView.contentMode = .scaleAspectFit
 
         // constraints
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            logoImageView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            logoImageView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+            logoImageView.widthAnchor.constraint(equalToConstant: 250),
+            logoImageView.centerXAnchor.constraint(equalTo: layoutMarginsGuide.centerXAnchor)
         ])
     }
 
@@ -97,7 +100,6 @@ extension CompanyTableCell {
     private func info() {
         // Background view
         @TAMIC var backgroundView = makeBackground()
-        addSubview(backgroundView)
         // Title
         @TAMIC var titleLabel = makeTitle("Info")
         // Founded
@@ -140,7 +142,6 @@ extension CompanyTableCell {
     private func people() {
         // Background view
         @TAMIC var backgroundView = makeBackground()
-        addSubview(backgroundView)
         // title
         @TAMIC var titleLabel = makeTitle("People")
         // Founder
@@ -172,6 +173,38 @@ extension CompanyTableCell {
         ])
     }
 
+    // MARK: - links
+    private func links() {
+        // Background view
+        @TAMIC var backgroundView = makeBackground()
+        // title
+        @TAMIC var titleLabel = makeTitle("Links")
+        // Website
+        addLinkButton(for: websiteLink, with: "🌎 Website", parentView: backgroundView)
+        // Twitter
+        addLinkButton(for: twitterLink, with: "🐥 Twitter", parentView: backgroundView)
+        // Elon Twitter
+        addLinkButton(for: twitterElonLink, with: "🐥 Elon's Twitter", parentView: backgroundView)
+        // Flickr
+        addLinkButton(for: flickrLink, with: "📸 Flickr", parentView: backgroundView)
+
+        // Constraints
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: .padding),
+            titleLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: .padding),
+            titleLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -(.padding)),
+            websiteLink.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .padding),
+            twitterLink.topAnchor.constraint(equalTo: websiteLink.bottomAnchor, constant: .padding),
+            twitterElonLink.topAnchor.constraint(equalTo: twitterLink.bottomAnchor, constant: .padding),
+            flickrLink.topAnchor.constraint(equalTo: twitterElonLink.bottomAnchor, constant: .padding),
+
+            backgroundView.topAnchor.constraint(equalTo: cooLabel.bottomAnchor, constant: .padding * 2),
+            backgroundView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: flickrLink.bottomAnchor, constant: .padding)
+        ])
+    }
+
     // MARK: - helper funcs
     // setup label by adding to view, settings text, n lines, and width anchors
     private func addLabel(_ label: UILabel, parentView: UIView) {
@@ -182,6 +215,18 @@ extension CompanyTableCell {
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: .padding),
             label.trailingAnchor.constraint(equalTo: parentView.trailingAnchor, constant: -(.padding))
+        ])
+    }
+
+    private func addLinkButton(for button: UIButton, with title: String, parentView: UIView) {
+        addSubview(button)
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.contentHorizontalAlignment = .leading
+
+        NSLayoutConstraint.activate([
+            button.leadingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: .padding),
+            button.trailingAnchor.constraint(equalTo: parentView.trailingAnchor, constant: -(.padding))
         ])
     }
 
@@ -198,6 +243,7 @@ extension CompanyTableCell {
         let backgroundView = UIView()
         backgroundView.backgroundColor = .secondarySystemBackground
         backgroundView.layer.cornerRadius = .cornerRadius
+        addSubview(backgroundView)
         return backgroundView
     }
 
@@ -205,8 +251,8 @@ extension CompanyTableCell {
     private func makeLabel(title: String, text: String, icon: String) -> NSAttributedString {
         let fullString = NSMutableAttributedString()
         fullString.append(NSAttributedString(string: icon))
-        fullString.append(NSAttributedString(string: " \(title): ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: .fontBody, weight: .semibold)]))
-        fullString.append(NSAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel]))
+        fullString.append(NSAttributedString(string: " \(title): ", attributes: [.font: UIFont.systemFont(ofSize: .fontBody, weight: .semibold)]))
+        fullString.append(NSAttributedString(string: text, attributes: [.foregroundColor: UIColor.secondaryLabel]))
 
         return fullString
     }
@@ -216,12 +262,13 @@ extension CompanyTableCell {
 extension CompanyTableCell {
     private func configureCell() {
         selectionStyle = .none
+        contentView.isUserInteractionEnabled = true
     }
 
     private func makeCellResizable(with lastItem: UIView) {
         NSLayoutConstraint.activate([
             // make cell resizable
-            lastItem.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
+            lastItem.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -(.padding))
         ])
     }
 
@@ -248,6 +295,10 @@ extension CompanyTableCell {
             self.ctoPropLabel.attributedText = makeLabel(title: "CTO Propulsion", text: companyData.cto_propulsion, icon: "👨‍💻")
             self.cooLabel.attributedText = makeLabel(title: "COO", text: companyData.coo, icon: "👨‍💻")
             // Links
+            self.websiteLink.link = companyData.links.website
+            self.twitterLink.link = companyData.links.twitter
+            self.twitterElonLink.link = companyData.links.elon_twitter
+            self.flickrLink.link = companyData.links.flickr
         }
     }
 }

@@ -4,16 +4,8 @@ import UIKit
 import JsHelper
 
 class CompanyVC: UIViewController {
-    private var companyData: CompanyModel? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    private var historyData: [HistoryModel] = [] {
-        didSet {
-            // TODO: Data loaded
-        }
-    }
+    private var companyData: CompanyModel?
+    private var historyData: [HistoryModel] = []
 
     // MARK: - views
     @TAMIC private var tableView: UITableView = {
@@ -25,13 +17,15 @@ class CompanyVC: UIViewController {
         return table
     }()
 
+    @TAMIC private var ai = UIActivityIndicatorView()
+
     // MARK: - didLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        addLoadingIndicator()
         fetchData()
         configureView()
-        configureTableView()
     }
 }
 
@@ -41,6 +35,18 @@ extension CompanyVC {
     private func configureView() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Company"
+    }
+
+    // add loading indicator
+    private func addLoadingIndicator() {
+        view.addSubview(ai)
+        ai.startAnimating()
+        ai.hidesWhenStopped = true
+
+        NSLayoutConstraint.activate([
+            ai.heightAnchor.constraint(equalTo: view.heightAnchor),
+            ai.widthAnchor.constraint(equalTo: view.widthAnchor)
+        ])
     }
 
     // configure table view
@@ -57,7 +63,7 @@ extension CompanyVC {
 // MARK: - delegate
 extension CompanyVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,6 +92,7 @@ extension CompanyVC {
         Task.init {
             await fetchCompanyData()
             await fetchHistoryData()
+            dataDidLoad()
         }
     }
 
@@ -99,5 +106,10 @@ extension CompanyVC {
     private func fetchHistoryData() async {
         let historyData: [HistoryModel] = await APIModel.shared.fetch(for: .history)
         self.historyData = historyData
+    }
+
+    private func dataDidLoad() {
+        ai.removeFromSuperview()
+        configureTableView()
     }
 }
