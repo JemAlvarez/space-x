@@ -88,84 +88,100 @@ extension CompanyTableCell {
 
         NSLayoutConstraint.activate([
             summaryLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: .padding),
-            summaryLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            summaryLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+            summaryLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .padding * 2),
+            summaryLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(.padding * 2))
         ])
     }
 
     // MARK: - info
     private func info() {
+        // Background view
+        @TAMIC var backgroundView = makeBackground()
+        addSubview(backgroundView)
         // Title
         @TAMIC var titleLabel = makeTitle("Info")
         // Founded
-        addLabel(foundedLabel)
+        addLabel(foundedLabel, parentView: backgroundView)
         // Valuation
-        addLabel(valuationLabel)
+        addLabel(valuationLabel, parentView: backgroundView)
         // Employees
-        addLabel(employeesLabel)
+        addLabel(employeesLabel, parentView: backgroundView)
         // Vehicles
-        addLabel(vehiclesLabel)
+        addLabel(vehiclesLabel, parentView: backgroundView)
         // Launch sites
-        addLabel(launchSitesLabel)
+        addLabel(launchSitesLabel, parentView: backgroundView)
         // Test sites
-        addLabel(testSitesLabel)
+        addLabel(testSitesLabel, parentView: backgroundView)
         // Headquarters
-        addLabel(headquartersLabel)
+        addLabel(headquartersLabel, parentView: backgroundView)
         headquartersLabel.numberOfLines = 2
 
         // Constraints
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: summaryLabel.bottomAnchor, constant: .padding),
-            titleLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: .padding),
+            titleLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: .padding),
+            titleLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -(.padding)),
             foundedLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .padding),
             valuationLabel.topAnchor.constraint(equalTo: foundedLabel.bottomAnchor, constant: .padding),
             employeesLabel.topAnchor.constraint(equalTo: valuationLabel.bottomAnchor, constant: .padding),
             vehiclesLabel.topAnchor.constraint(equalTo: employeesLabel.bottomAnchor, constant: .padding),
             launchSitesLabel.topAnchor.constraint(equalTo: vehiclesLabel.bottomAnchor, constant: .padding),
             testSitesLabel.topAnchor.constraint(equalTo: launchSitesLabel.bottomAnchor, constant: .padding),
-            headquartersLabel.topAnchor.constraint(equalTo: testSitesLabel.bottomAnchor, constant: .padding)
+            headquartersLabel.topAnchor.constraint(equalTo: testSitesLabel.bottomAnchor, constant: .padding),
+
+            backgroundView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            backgroundView.topAnchor.constraint(equalTo: summaryLabel.bottomAnchor, constant: .padding),
+            backgroundView.bottomAnchor.constraint(equalTo: headquartersLabel.bottomAnchor, constant: .padding)
         ])
     }
 
     // MARK: - people
     private func people() {
+        // Background view
+        @TAMIC var backgroundView = makeBackground()
+        addSubview(backgroundView)
         // title
         @TAMIC var titleLabel = makeTitle("People")
         // Founder
-        addLabel(founderLabel)
+        addLabel(founderLabel, parentView: backgroundView)
         // CEO
-        addLabel(ceoLabel)
+        addLabel(ceoLabel, parentView: backgroundView)
         // CTO
-        addLabel(ctoLabel)
+        addLabel(ctoLabel, parentView: backgroundView)
         // CTO_Propulsion
-        addLabel(ctoPropLabel)
+        addLabel(ctoPropLabel, parentView: backgroundView)
         // COO
-        addLabel(cooLabel)
+        addLabel(cooLabel, parentView: backgroundView)
 
         // Constraints
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: headquartersLabel.bottomAnchor, constant: .padding),
-            titleLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: .padding),
+            titleLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: .padding),
+            titleLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -(.padding)),
             founderLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .padding),
             ceoLabel.topAnchor.constraint(equalTo: founderLabel.bottomAnchor, constant: .padding),
             ctoLabel.topAnchor.constraint(equalTo: ceoLabel.bottomAnchor, constant: .padding),
             ctoPropLabel.topAnchor.constraint(equalTo: ctoLabel.bottomAnchor, constant: .padding),
-            cooLabel.topAnchor.constraint(equalTo: ctoPropLabel.bottomAnchor, constant: .padding)
+            cooLabel.topAnchor.constraint(equalTo: ctoPropLabel.bottomAnchor, constant: .padding),
+
+            backgroundView.topAnchor.constraint(equalTo: headquartersLabel.bottomAnchor, constant: .padding * 2),
+            backgroundView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: cooLabel.bottomAnchor, constant: .padding)
         ])
     }
 
     // MARK: - helper funcs
     // setup label by adding to view, settings text, n lines, and width anchors
-    private func addLabel(_ label: UILabel) {
+    private func addLabel(_ label: UILabel, parentView: UIView) {
         addSubview(label)
         label.text = "-"
         label.numberOfLines = 1
 
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: .padding),
-            label.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+            label.leadingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: .padding),
+            label.trailingAnchor.constraint(equalTo: parentView.trailingAnchor, constant: -(.padding))
         ])
     }
 
@@ -174,7 +190,15 @@ extension CompanyTableCell {
         addSubview(titleLabel)
         titleLabel.text = title
         titleLabel.font = .systemFont(ofSize: .fontTitle3, weight: .bold)
+        titleLabel.textAlignment = .center
         return titleLabel
+    }
+
+    private func makeBackground() -> UIView {
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .secondarySystemBackground
+        backgroundView.layer.cornerRadius = .cornerRadius
+        return backgroundView
     }
 
     // generate attributed string with icon
