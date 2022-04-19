@@ -8,6 +8,12 @@ class TabBarVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let appearance = UITabBarAppearance()
+        appearance.configureWithDefaultBackground()
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = appearance
+        }
+
         viewControllers = getTabViewControllers()
     }
 }

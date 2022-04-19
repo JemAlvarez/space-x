@@ -85,7 +85,7 @@ extension CompanyTableCell {
     private func summary() {
         // Summary
         addSubview(summaryLabel)
-        summaryLabel.text = "-"
+        summaryLabel.text = companyData?.summary ?? "NOTHNG"
         summaryLabel.numberOfLines = 0
         summaryLabel.font = .systemFont(ofSize: .fontBody, weight: .light)
 
@@ -246,16 +246,6 @@ extension CompanyTableCell {
         addSubview(backgroundView)
         return backgroundView
     }
-
-    // generate attributed string with icon
-    private func makeLabel(title: String, text: String, icon: String) -> NSAttributedString {
-        let fullString = NSMutableAttributedString()
-        fullString.append(NSAttributedString(string: icon))
-        fullString.append(NSAttributedString(string: " \(title): ", attributes: [.font: UIFont.systemFont(ofSize: .fontBody, weight: .semibold)]))
-        fullString.append(NSAttributedString(string: text, attributes: [.foregroundColor: UIColor.secondaryLabel]))
-
-        return fullString
-    }
 }
 
 // MARK: - config
@@ -263,17 +253,6 @@ extension CompanyTableCell {
     private func configureCell() {
         selectionStyle = .none
         contentView.isUserInteractionEnabled = true
-    }
-
-    private func makeCellResizable(with lastItem: UIView) {
-        NSLayoutConstraint.activate([
-            // make cell resizable
-            lastItem.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -(.padding))
-        ])
-    }
-
-    func setupData(with companyData: CompanyModel) {
-        self.companyData = companyData
     }
 
     private func populateData() {

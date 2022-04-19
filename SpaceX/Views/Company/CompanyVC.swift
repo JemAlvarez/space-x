@@ -8,19 +8,10 @@ class CompanyVC: UIViewController {
     private var historyData: [HistoryModel] = []
 
     // MARK: - views
-    @TAMIC private var companyTableView: UITableView = {
-        let table = UITableView()
-        // register cells
-        table.register(CompanyTableCell.self, forCellReuseIdentifier: CompanyTableCell.id)
-        // no dividers
-        table.separatorColor = .clear
-        return table
-    }()
 
-    @TAMIC private var historyTableView: UITableView = {
-        let table = UITableView()
-        return table
-    }()
+    @TAMIC private var companyTableView = CompanyTableView()
+    @TAMIC private var historyTableView = HistoryTableView()
+    @TAMIC private var ai = UIActivityIndicatorView()
 
     lazy var segmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Company", "History"])
@@ -30,12 +21,11 @@ class CompanyVC: UIViewController {
         return sc
     }()
 
-    @TAMIC private var ai = UIActivityIndicatorView()
-
     // MARK: - didLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configView()
         addLoadingIndicator()
         fetchData()
     }
@@ -55,65 +45,39 @@ extension CompanyVC {
         ])
     }
 
-    private func addSegmentedControl() {
-        navigationItem.titleView = segmentedControl
-        historyTableView.isHidden = true
-    }
-
     // configure table view
     private func configureTableViews() {
-        addSegmentedControl()
-        // delegate & datasource
-        companyTableView.delegate = self
-        companyTableView.dataSource = self
-        // add sub view and constraints for company table view
-        view.addSubview(companyTableView)
-        companyTableView.addConstraints(equalTo: view)
+        navigationItem.titleView = segmentedControl
+
         // add sub view and constraints for history table view
         view.addSubview(historyTableView)
         historyTableView.addConstraints(equalTo: view)
+        
+        // add sub view and constraints for company table view
+        view.addSubview(companyTableView)
+        companyTableView.addConstraints(equalTo: view)
     }
 
     // selectors
     @objc func segmentedControlDidChange(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            companyTableView.isHidden = false
-            historyTableView.isHidden = true
+            view.bringSubviewToFront(companyTableView)
         } else if sender.selectedSegmentIndex == 1 {
-            companyTableView.isHidden = true
-            historyTableView.isHidden = false
+            view.bringSubviewToFront(historyTableView)
         }
-    }
-}
-
-// MARK: - delegate
-extension CompanyVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let companyCell = makeCompanyCell(indexPath: indexPath)
-        return companyCell
-    }
-}
-
-// MARK: - make cells
-extension CompanyVC {
-    func makeCompanyCell(indexPath: IndexPath) -> UITableViewCell {
-        let cell = companyTableView.dequeueReusableCell(withIdentifier: CompanyTableCell.id, for: indexPath)
-
-        if let companyCell = cell as? CompanyTableCell, let companyData = companyData {
-            companyCell.setupData(with: companyData)
-            return companyCell
-        }
-
-        return cell
     }
 }
 
 // MARK: - data
 extension CompanyVC {
+    private func configView() {
+        if #available(iOS 15.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithDefaultBackground()
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
+    }
+
     private func fetchData() {
         Task.init {
             await fetchCompanyData()
@@ -136,8 +100,13 @@ extension CompanyVC {
 
     private func dataDidLoad() {
         UIView.animate(withDuration: 0.25) {
+            // remove spinner
             self.ai.removeFromSuperview()
+            // add tables and segmented control
             self.configureTableViews()
+            // add data to tables
+            self.companyTableView.companyData = self.companyData
+            self.historyTableView.historyData = self.historyData
         }
     }
 }
