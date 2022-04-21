@@ -16,6 +16,9 @@
 		CA241AD5280F453C008005DE /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AD4280F453C008005DE /* UIViewExtensions.swift */; };
 		CA241ADA2810E26E008005DE /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AD92810E26E008005DE /* SettingsTableView.swift */; };
 		CA241ADC2810E42B008005DE /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241ADB2810E42B008005DE /* UserDefaultsExtensions.swift */; };
+		CA241AE02810EA13008005DE /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241ADF2810EA13008005DE /* App.swift */; };
+		CA241AE42810EC2D008005DE /* AlternateIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AE32810EC2D008005DE /* AlternateIconCell.swift */; };
+		CA241AE628110B7C008005DE /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AE528110B7C008005DE /* UITableViewCellExtensions.swift */; };
 		CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584992808D18900CF6EA3 /* AppDelegate.swift */; };
 		CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */; };
 		CA6584A12808D18900CF6EA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA65849F2808D18900CF6EA3 /* LaunchScreen.storyboard */; };
@@ -54,6 +57,9 @@
 		CA241AD4280F453C008005DE /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		CA241AD92810E26E008005DE /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		CA241ADB2810E42B008005DE /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
+		CA241ADF2810EA13008005DE /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		CA241AE32810EC2D008005DE /* AlternateIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternateIconCell.swift; sourceTree = "<group>"; };
+		CA241AE528110B7C008005DE /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
 		CA6584962808D18900CF6EA3 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6584992808D18900CF6EA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 				CA241ACA280E17C2008005DE /* DoubleExtensions.swift */,
 				CA241AD4280F453C008005DE /* UIViewExtensions.swift */,
 				CA241ADB2810E42B008005DE /* UserDefaultsExtensions.swift */,
+				CA241AE528110B7C008005DE /* UITableViewCellExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -109,10 +116,36 @@
 		CA241AD82810E24B008005DE /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				CA241AE22810EB00008005DE /* Cells */,
 				CA6584E0280D16F000CF6EA3 /* SettingsVC.swift */,
 				CA241AD92810E26E008005DE /* SettingsTableView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		CA241AE12810EAF7008005DE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CA6584E5280DE0D000CF6EA3 /* CompanyTableCell.swift */,
+				CA241ACE280F2F95008005DE /* HistoryTableCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CA241AE22810EB00008005DE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CA241AE32810EC2D008005DE /* AlternateIconCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CA241AE7281116DE008005DE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CA241ACC280E56F9008005DE /* UILinkButton.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		CA65848D2808D18900CF6EA3 = {
@@ -147,6 +180,7 @@
 		CA6584B02808D44100CF6EA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA241AE7281116DE008005DE /* Shared */,
 				CA241AD82810E24B008005DE /* Settings */,
 				CA6584E4280DE09500CF6EA3 /* Company */,
 				CA6584D5280D144500CF6EA3 /* TabBarVC.swift */,
@@ -182,7 +216,6 @@
 			children = (
 				CA241AC7280DF464008005DE /* Extensions */,
 				CA6584B82808D71700CF6EA3 /* APIModel.swift */,
-				CA241ACC280E56F9008005DE /* UILinkButton.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -193,6 +226,7 @@
 				CA65849F2808D18900CF6EA3 /* LaunchScreen.storyboard */,
 				CA6584992808D18900CF6EA3 /* AppDelegate.swift */,
 				CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */,
+				CA241ADF2810EA13008005DE /* App.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -200,9 +234,8 @@
 		CA6584E4280DE09500CF6EA3 /* Company */ = {
 			isa = PBXGroup;
 			children = (
+				CA241AE12810EAF7008005DE /* Cells */,
 				CA6584DD280D16CA00CF6EA3 /* CompanyVC.swift */,
-				CA6584E5280DE0D000CF6EA3 /* CompanyTableCell.swift */,
-				CA241ACE280F2F95008005DE /* HistoryTableCell.swift */,
 				CA241AD0280F3063008005DE /* CompanyTableView.swift */,
 				CA241AD2280F33C2008005DE /* HistoryTableView.swift */,
 			);
@@ -317,6 +350,7 @@
 				CA241AD3280F33C2008005DE /* HistoryTableView.swift in Sources */,
 				CA6584D6280D144500CF6EA3 /* TabBarVC.swift in Sources */,
 				CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */,
+				CA241AE42810EC2D008005DE /* AlternateIconCell.swift in Sources */,
 				CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */,
 				CA6584C0280A29A900CF6EA3 /* CoreModel.swift in Sources */,
 				CA6584C4280A2C6700CF6EA3 /* DragonModel.swift in Sources */,
@@ -329,7 +363,9 @@
 				CA6584D8280D164D00CF6EA3 /* LaunchesVC.swift in Sources */,
 				CA6584C6280A304400CF6EA3 /* LandPadModel.swift in Sources */,
 				CA6584E6280DE0D000CF6EA3 /* CompanyTableCell.swift in Sources */,
+				CA241AE628110B7C008005DE /* UITableViewCellExtensions.swift in Sources */,
 				CA6584DA280D167A00CF6EA3 /* CrewVC.swift in Sources */,
+				CA241AE02810EA13008005DE /* App.swift in Sources */,
 				CA241ADA2810E26E008005DE /* SettingsTableView.swift in Sources */,
 				CA6584BE2808EDA500CF6EA3 /* CompanyModel.swift in Sources */,
 				CA6584D0280A45CC00CF6EA3 /* HistoryModel.swift in Sources */,
@@ -472,8 +508,10 @@
 		CA6584AB2808D18A00CF6EA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = AppIcon1;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HB3E67YK35;
@@ -500,8 +538,10 @@
 		CA6584AC2808D18A00CF6EA3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = AppIcon1;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HB3E67YK35;

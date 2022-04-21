@@ -22,7 +22,6 @@ extension SceneDelegate {
         var numTimesOpened = UserDefaults.standard.integer(forKey: UserDefaults.Keys.numberOfTimesOpened.rawValue)
         numTimesOpened += 1
         UserDefaults.standard.set(numTimesOpened, forKey: UserDefaults.Keys.numberOfTimesOpened.rawValue)
-        print(numTimesOpened)
 
         switch numTimesOpened {
         case 10:
@@ -30,6 +29,18 @@ extension SceneDelegate {
         case 25:
             UIApplication.requestStoreReview()
         case 50:
+            UIApplication.requestStoreReview()
+        case 100:
+            UIApplication.requestStoreReview()
+        case 150:
+            UIApplication.requestStoreReview()
+        case 200:
+            UIApplication.requestStoreReview()
+        case 250:
+            UIApplication.requestStoreReview()
+        case 300:
+            UIApplication.requestStoreReview()
+        case 400:
             UIApplication.requestStoreReview()
         default:
             break
