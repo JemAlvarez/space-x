@@ -8,8 +8,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if let windowScene = makeWindow(for: scene, with: TabBarVC()) {
-            self.window = windowScene
+        if let window = makeWindow(for: scene, with: TabBarVC()) {
+            self.window = window
+
+            // request review
+            requestStoreReview()
+        }
+    }
+}
+
+extension SceneDelegate {
+    func requestStoreReview() {
+        var numTimesOpened = UserDefaults.standard.integer(forKey: UserDefaults.Keys.numberOfTimesOpened.rawValue)
+        numTimesOpened += 1
+        UserDefaults.standard.set(numTimesOpened, forKey: UserDefaults.Keys.numberOfTimesOpened.rawValue)
+        print(numTimesOpened)
+
+        switch numTimesOpened {
+        case 10:
+            UIApplication.requestStoreReview()
+        case 25:
+            UIApplication.requestStoreReview()
+        case 50:
+            UIApplication.requestStoreReview()
+        default:
+            break
         }
     }
 }

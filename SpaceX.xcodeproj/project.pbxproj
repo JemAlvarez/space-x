@@ -14,6 +14,8 @@
 		CA241AD1280F3063008005DE /* CompanyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AD0280F3063008005DE /* CompanyTableView.swift */; };
 		CA241AD3280F33C2008005DE /* HistoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AD2280F33C2008005DE /* HistoryTableView.swift */; };
 		CA241AD5280F453C008005DE /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AD4280F453C008005DE /* UIViewExtensions.swift */; };
+		CA241ADA2810E26E008005DE /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AD92810E26E008005DE /* SettingsTableView.swift */; };
+		CA241ADC2810E42B008005DE /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241ADB2810E42B008005DE /* UserDefaultsExtensions.swift */; };
 		CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584992808D18900CF6EA3 /* AppDelegate.swift */; };
 		CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */; };
 		CA6584A12808D18900CF6EA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA65849F2808D18900CF6EA3 /* LaunchScreen.storyboard */; };
@@ -50,6 +52,8 @@
 		CA241AD0280F3063008005DE /* CompanyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableView.swift; sourceTree = "<group>"; };
 		CA241AD2280F33C2008005DE /* HistoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableView.swift; sourceTree = "<group>"; };
 		CA241AD4280F453C008005DE /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		CA241AD92810E26E008005DE /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
+		CA241ADB2810E42B008005DE /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		CA6584962808D18900CF6EA3 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6584992808D18900CF6EA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,8 +101,18 @@
 				CA241AC8280DF47A008005DE /* CGFloatExtensions.swift */,
 				CA241ACA280E17C2008005DE /* DoubleExtensions.swift */,
 				CA241AD4280F453C008005DE /* UIViewExtensions.swift */,
+				CA241ADB2810E42B008005DE /* UserDefaultsExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CA241AD82810E24B008005DE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CA6584E0280D16F000CF6EA3 /* SettingsVC.swift */,
+				CA241AD92810E26E008005DE /* SettingsTableView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		CA65848D2808D18900CF6EA3 = {
@@ -133,12 +147,12 @@
 		CA6584B02808D44100CF6EA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA241AD82810E24B008005DE /* Settings */,
 				CA6584E4280DE09500CF6EA3 /* Company */,
 				CA6584D5280D144500CF6EA3 /* TabBarVC.swift */,
 				CA6584D7280D164D00CF6EA3 /* LaunchesVC.swift */,
 				CA6584D9280D167A00CF6EA3 /* CrewVC.swift */,
 				CA6584DB280D169800CF6EA3 /* VehiclesVC.swift */,
-				CA6584E0280D16F000CF6EA3 /* SettingsVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,11 +330,13 @@
 				CA6584C6280A304400CF6EA3 /* LandPadModel.swift in Sources */,
 				CA6584E6280DE0D000CF6EA3 /* CompanyTableCell.swift in Sources */,
 				CA6584DA280D167A00CF6EA3 /* CrewVC.swift in Sources */,
+				CA241ADA2810E26E008005DE /* SettingsTableView.swift in Sources */,
 				CA6584BE2808EDA500CF6EA3 /* CompanyModel.swift in Sources */,
 				CA6584D0280A45CC00CF6EA3 /* HistoryModel.swift in Sources */,
 				CA6584C8280A335800CF6EA3 /* LaunchPadModel.swift in Sources */,
 				CA241ACB280E17C2008005DE /* DoubleExtensions.swift in Sources */,
 				CA6584B92808D71700CF6EA3 /* APIModel.swift in Sources */,
+				CA241ADC2810E42B008005DE /* UserDefaultsExtensions.swift in Sources */,
 				CA6584BB2808DF6200CF6EA3 /* CapsuleModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

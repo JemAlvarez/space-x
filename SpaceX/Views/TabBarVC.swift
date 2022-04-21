@@ -8,18 +8,22 @@ class TabBarVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let appearance = UITabBarAppearance()
-        appearance.configureWithDefaultBackground()
-        if #available(iOS 15.0, *) {
-            tabBar.scrollEdgeAppearance = appearance
-        }
+        removeScrollEdgeAppearance()
 
-        viewControllers = getTabViewControllers()
+        setViewControllers(getTabViewControllers(), animated: true)
     }
 }
 
 // MARK: - extensions
 extension TabBarVC {
+    func removeScrollEdgeAppearance() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithDefaultBackground()
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = appearance
+        }
+    }
+
     // MARK: - return tab VCs
     func getTabViewControllers() -> [UIViewController] {
         // Launches
@@ -34,8 +38,8 @@ extension TabBarVC {
         let settingsVC = UINavigationController(rootViewController: SettingsVC())
 
         // all VCs
-        let vcs = [launchesVC, crewVC, vehiclesVC, companyVC, settingsVC]
-//        let vcs = [companyVC, crewVC, vehiclesVC, launchesVC, settingsVC]
+//        let vcs = [launchesVC, crewVC, vehiclesVC, companyVC, settingsVC]
+        let vcs = [settingsVC, crewVC, vehiclesVC, companyVC, launchesVC]
 
         // set VCs titles
         for i in 0..<tabs.count {
