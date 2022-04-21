@@ -175,33 +175,25 @@ extension CompanyTableCell {
 
     // MARK: - links
     private func links() {
-        // Background view
-        @TAMIC var backgroundView = makeBackground()
-        // title
-        @TAMIC var titleLabel = makeTitle("Links")
         // Website
-        addLinkButton(for: websiteLink, with: "🌎 Website", parentView: backgroundView)
+        addLinkButton(for: websiteLink, with: "🌎 Website", parentView: self)
+        websiteLink.contentHorizontalAlignment = .center
         // Twitter
-        addLinkButton(for: twitterLink, with: "🐥 Twitter", parentView: backgroundView)
+        addLinkButton(for: twitterLink, with: "🐥 Twitter", parentView: self)
+        twitterLink.contentHorizontalAlignment = .center
         // Elon Twitter
-        addLinkButton(for: twitterElonLink, with: "🐥 Elon's Twitter", parentView: backgroundView)
+        addLinkButton(for: twitterElonLink, with: "🐥 Elon's Twitter", parentView: self)
+        twitterElonLink.contentHorizontalAlignment = .center
         // Flickr
-        addLinkButton(for: flickrLink, with: "📸 Flickr", parentView: backgroundView)
+        addLinkButton(for: flickrLink, with: "📸 Flickr", parentView: self)
+        flickrLink.contentHorizontalAlignment = .center
 
         // Constraints
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: .padding),
-            titleLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: .padding),
-            titleLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -(.padding)),
-            websiteLink.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .padding),
-            twitterLink.topAnchor.constraint(equalTo: websiteLink.bottomAnchor, constant: .padding),
-            twitterElonLink.topAnchor.constraint(equalTo: twitterLink.bottomAnchor, constant: .padding),
-            flickrLink.topAnchor.constraint(equalTo: twitterElonLink.bottomAnchor, constant: .padding),
-
-            backgroundView.topAnchor.constraint(equalTo: cooLabel.bottomAnchor, constant: .padding * 2),
-            backgroundView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: flickrLink.bottomAnchor, constant: .padding)
+            websiteLink.topAnchor.constraint(equalTo: cooLabel.bottomAnchor, constant: .padding * 2),
+            twitterLink.topAnchor.constraint(equalTo: websiteLink.bottomAnchor),
+            twitterElonLink.topAnchor.constraint(equalTo: twitterLink.bottomAnchor),
+            flickrLink.topAnchor.constraint(equalTo: twitterElonLink.bottomAnchor)
         ])
     }
 
