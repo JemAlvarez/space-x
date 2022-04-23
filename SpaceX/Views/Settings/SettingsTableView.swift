@@ -123,6 +123,7 @@ extension SettingsTableView {
         footerLabel.text = "Made by Jem with ❤️ ... for SpaceX 😄"
         footerLabel.textColor = .secondaryLabel
         footerLabel.textAlignment = .center
+        footerLabel.font = .preferredFont(forTextStyle: .footnote)
         container.addSubview(footerLabel)
         let footerLabelWidthAnchor = footerLabel.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -(.padding * 2))
         footerLabelWidthAnchor.priority = UILayoutPriority(750)
@@ -131,6 +132,7 @@ extension SettingsTableView {
         versionLabel.text = "Version: \(Bundle.main.appVersionLong) (\(Bundle.main.appBuild))"
         versionLabel.textColor = .secondaryLabel
         versionLabel.textAlignment = .center
+        versionLabel.font = .preferredFont(forTextStyle: .footnote)
         container.addSubview(versionLabel)
         let versionLabelWidthAnchor = versionLabel.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -(.padding * 2))
         versionLabelWidthAnchor.priority = UILayoutPriority(750)
@@ -163,6 +165,7 @@ extension SettingsTableView {
         image.image = UIImage(systemName: icon)?.withTintColor(.white, renderingMode: .alwaysOriginal)
         // label
         label.text = text
+        label.font = .preferredFont(forTextStyle: .body)
         // link image
         linkImage.image = UIImage(systemName: "arrow.up.forward", withConfiguration: UIImage.SymbolConfiguration(pointSize: .fontBody, weight: .bold, scale: .large))
 

@@ -42,11 +42,11 @@ extension HistoryTableCell {
         // title
         addSubview(titleLabel)
         titleLabel.numberOfLines = 0
-        titleLabel.font = .systemFont(ofSize: .fontBody, weight: .bold)
+        titleLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .systemFont(ofSize: .fontBody, weight: .bold))
         // details
         addSubview(detailsLabel)
         detailsLabel.numberOfLines = 0
-        detailsLabel.font = .systemFont(ofSize: .fontBody, weight: .light)
+        detailsLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .systemFont(ofSize: .fontBody, weight: .light))
         // dates
         addSubview(dateLabel)
         dateLabel.numberOfLines = 0
@@ -59,6 +59,7 @@ extension HistoryTableCell {
         articleLinkButton.setTitle("🔗", for: .normal)
         articleLinkButton.backgroundColor = .systemBlue
         articleLinkButton.layer.cornerRadius = linkButtonWidth / 2
+        articleLinkButton.titleLabel?.font = .preferredFont(forTextStyle: .body)
 
         NSLayoutConstraint.activate([
             // title
@@ -98,18 +99,18 @@ extension HistoryTableCell {
             self.detailsLabel.text = historyData.details ?? "-"
 
             let dateString = NSMutableAttributedString()
-            dateString.append(NSAttributedString(string: "Date: ", attributes: [.font: UIFont.systemFont(ofSize: .fontFootnote, weight: .bold)]))
+            dateString.append(NSAttributedString(string: "Date: ", attributes: [.font: UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: .fontFootnote, weight: .bold))]))
             if let unix = historyData.event_date_unix {
                 let date = Date(timeIntervalSince1970: TimeInterval(unix)).getString(with: "MMM d, yyyy h:mm a")
-                dateString.append(NSAttributedString(string: date, attributes: [.font: UIFont.systemFont(ofSize: .fontFootnote)]))
+                dateString.append(NSAttributedString(string: date, attributes: [.font: UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: .fontFootnote, weight: .light))]))
             } else {
-                dateString.append(NSAttributedString(string: "-", attributes: [.font: UIFont.systemFont(ofSize: .fontFootnote)]))
+                dateString.append(NSAttributedString(string: "-", attributes: [.font: UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: .fontFootnote, weight: .light))]))
             }
             self.dateLabel.attributedText = dateString
 
             let utcDateString = NSMutableAttributedString()
-            utcDateString.append(NSAttributedString(string: "UTC Date: ", attributes: [.font: UIFont.systemFont(ofSize: .fontFootnote, weight: .bold)]))
-            utcDateString.append(NSAttributedString(string: historyData.event_date_utc ?? "-", attributes: [.font: UIFont.systemFont(ofSize: .fontFootnote)]))
+            utcDateString.append(NSAttributedString(string: "UTC Date: ", attributes: [.font: UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: .fontFootnote, weight: .bold))]))
+            utcDateString.append(NSAttributedString(string: historyData.event_date_utc ?? "-", attributes: [.font: UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: .fontFootnote, weight: .light))]))
             self.dateUTCLabel.attributedText = utcDateString
 
             self.articleLinkButton.link = historyData.links.article ?? ""

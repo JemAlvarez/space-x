@@ -87,7 +87,7 @@ extension CompanyTableCell {
         addSubview(summaryLabel)
         summaryLabel.text = companyData?.summary ?? "NOTHNG"
         summaryLabel.numberOfLines = 0
-        summaryLabel.font = .systemFont(ofSize: .fontBody, weight: .light)
+        summaryLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .systemFont(ofSize: .fontBody, weight: .light))
 
         NSLayoutConstraint.activate([
             summaryLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: .padding),
@@ -203,6 +203,7 @@ extension CompanyTableCell {
         addSubview(label)
         label.text = "-"
         label.numberOfLines = 1
+        label.font = .preferredFont(forTextStyle: .body)
 
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: .padding),
@@ -215,6 +216,7 @@ extension CompanyTableCell {
         button.setTitle(title, for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.contentHorizontalAlignment = .leading
+        button.titleLabel?.font = .preferredFont(forTextStyle: .body)
 
         NSLayoutConstraint.activate([
             button.leadingAnchor.constraint(equalTo: parentView.leadingAnchor, constant: .padding),
@@ -226,7 +228,7 @@ extension CompanyTableCell {
         let titleLabel = UILabel()
         addSubview(titleLabel)
         titleLabel.text = title
-        titleLabel.font = .systemFont(ofSize: .fontTitle3, weight: .bold)
+        titleLabel.font = UIFontMetrics(forTextStyle: .title3).scaledFont(for: .systemFont(ofSize: .fontTitle3, weight: .bold))
         titleLabel.textAlignment = .center
         return titleLabel
     }

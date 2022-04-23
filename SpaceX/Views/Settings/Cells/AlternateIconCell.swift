@@ -47,7 +47,7 @@ extension AlternateIconCell {
         heightAnchor.priority = UILayoutPriority(999)
 
         NSLayoutConstraint.activate([
-            iconImageView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: .padding / 2),
+            iconImageView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
             iconImageView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             iconImageView.widthAnchor.constraint(equalToConstant: 65),
             heightAnchor
@@ -58,7 +58,7 @@ extension AlternateIconCell {
     private func displayLabel() {
         addSubview(iconNameLabel)
         iconNameLabel.text = imageName
-        iconNameLabel.font = .systemFont(ofSize: .fontBody, weight: .semibold)
+        iconNameLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .systemFont(ofSize: .fontBody, weight: .semibold))
 
         NSLayoutConstraint.activate([
             iconNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
