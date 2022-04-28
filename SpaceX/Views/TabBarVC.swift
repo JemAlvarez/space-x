@@ -1,6 +1,7 @@
 //
 
 import UIKit
+import JsHelper
 
 class TabBarVC: UITabBarController {
     private let tabs: [String] = ["Launches", "Crew", "Vehicles", "Company", "Settings"]
@@ -11,11 +12,29 @@ class TabBarVC: UITabBarController {
         removeScrollEdgeAppearance()
 
         setViewControllers(getTabViewControllers(), animated: true)
+
+        UserDefaults.standard.reset(for: [UserDefaults.Keys.hasShownOnboarding.rawValue])
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        displayOnboarding()
     }
 }
 
 // MARK: - extensions
 extension TabBarVC {
+    // MARK: - show onboarding
+    func displayOnboarding() {
+        let hasShownOnboarding = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hasShownOnboarding.rawValue)
+        
+        if !hasShownOnboarding {
+            present(OnboardingVC(), animated: true)
+        }
+    }
+
+    // MARK: - remove scroll edge appearance
     func removeScrollEdgeAppearance() {
         let appearance = UITabBarAppearance()
         appearance.configureWithDefaultBackground()
