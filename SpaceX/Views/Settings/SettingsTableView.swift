@@ -202,8 +202,6 @@ extension SettingsTableView {
 // MARK: - config
 extension SettingsTableView {
     private func configure() {
-        register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-
         rowHeight = UITableView.automaticDimension
         estimatedRowHeight = UITableView.automaticDimension
 

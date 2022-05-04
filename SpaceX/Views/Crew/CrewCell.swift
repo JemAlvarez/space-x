@@ -12,7 +12,7 @@ class CrewCell: UICollectionViewCell {
             populateUI()
         }
     }
-    var profileImage: UIImage? {
+    var profileImageData: Data? {
         didSet {
             populateUI()
         }
@@ -97,6 +97,12 @@ class CrewCell: UICollectionViewCell {
     private func populateUI() {
         nameLabel.text = name
         imageView.contentMode = .scaleAspectFill
-        imageView.image = profileImage
+        if let profileImageData = profileImageData {
+            downsample(with: profileImageData, to: CGSize(width: 170, height: 170)) { [weak self] img in
+                DispatchQueue.main.async {
+                    self?.imageView.image = img
+                }
+            }
+        }
     }
 }

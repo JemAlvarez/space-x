@@ -3,7 +3,11 @@
 import UIKit
 import JsHelper
 
-class CrewVC: UIViewController {
+protocol UICollectionViewNavigation {
+    func pushViewController(with vc: UIViewController)
+}
+
+class CrewVC: UIViewController, UICollectionViewNavigation {
     // MARK: - data
     var crewData: [CrewModel]? {
         didSet {
@@ -21,6 +25,10 @@ class CrewVC: UIViewController {
         super.viewDidLoad()
         config()
     }
+
+    func pushViewController(with vc: UIViewController) {
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - config
@@ -31,6 +39,7 @@ extension CrewVC {
         navigationItem.title = "Crew"
 
         // collection view
+        crewCollectionView.navigationDelegate = self
         view.addSubview(crewCollectionView)
         crewCollectionView.addConstraints(equalTo: view)
 

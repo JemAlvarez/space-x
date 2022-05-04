@@ -3,6 +3,8 @@
 import UIKit
 
 class CrewCollectionView: UICollectionView {
+    var navigationDelegate: UICollectionViewNavigation?
+
     var crew: [CrewModel]?
     var profileImages: [String: Data] = UserDefaults.standard.object(forKey: UserDefaults.Keys.cachedImages.rawValue) as? [String: Data] ?? [:] {
         didSet {
@@ -19,19 +21,31 @@ class CrewCollectionView: UICollectionView {
         config()
     }
 
+    deinit {
+        print("de init")
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(code:) has not been implemented")
     }
 }
 
 // MARK: - delegate
-extension CrewCollectionView: UICollectionViewDataSource {
+extension CrewCollectionView: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return crew?.count ?? 0
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIViewController()
+        vc.view.backgroundColor = .red
+        navigationDelegate?.pushViewController(with: vc)
+    }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let crewCell = dequeueReusableCell(withReuseIdentifier: CrewCell.id, for: indexPath) as? CrewCell
+        crewCell?.layer.shouldRasterize = true
+        crewCell?.layer.rasterizationScale = UIScreen.main.scale
 
         if let crewCell = crewCell, let crew = crew {
             let currentCrew = crew[indexPath.row]
@@ -39,7 +53,7 @@ extension CrewCollectionView: UICollectionViewDataSource {
 
             if let profileImage = profileImage {
                 // used cached image
-                crewCell.profileImage = UIImage(data: profileImage.value)
+                crewCell.profileImageData = profileImage.value
             } else {
                 // download image and cache
                 DispatchQueue.global().async { [weak self] in
@@ -50,7 +64,7 @@ extension CrewCollectionView: UICollectionViewDataSource {
                             self?.profileImages[url] = data
 
                             DispatchQueue.main.async {
-                                crewCell.profileImage = UIImage(data: data)
+                                crewCell.profileImageData = data
                             }
                         }
                     }
@@ -71,6 +85,7 @@ extension CrewCollectionView {
     private func config() {
         register(CrewCell.self, forCellWithReuseIdentifier: CrewCell.id)
         dataSource = self
+        delegate = self
         contentInset = UIEdgeInsets(top: 0, left: .padding, bottom: .padding * 2, right: .padding)
     }
 }
