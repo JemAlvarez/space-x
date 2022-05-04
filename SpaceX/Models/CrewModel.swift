@@ -1,6 +1,6 @@
 //
 
-import Foundation
+import UIKit
 
 struct CrewModel: Decodable {
     let name: String?

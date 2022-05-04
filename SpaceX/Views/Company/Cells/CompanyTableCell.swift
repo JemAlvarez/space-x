@@ -250,28 +250,28 @@ extension CompanyTableCell {
     }
 
     private func populateData() {
-        if let companyData = self.companyData {
+        if let companyData = companyData {
             // Summary
-            self.summaryLabel.text = companyData.summary
+            summaryLabel.text = companyData.summary
             // Info
-            self.foundedLabel.attributedText = makeLabel(title: "Founded", text: "\(companyData.founded)", icon: "📅")
-            self.valuationLabel.attributedText = makeLabel(title: "Valuation", text: "$\(companyData.valuation.formatMoney())", icon: "💰")
-            self.employeesLabel.attributedText = makeLabel(title: "Employees", text: "\(companyData.employees)", icon: "🧑‍🔧")
-            self.vehiclesLabel.attributedText = makeLabel(title: "Vehicles", text: "\(companyData.vehicles)", icon: "🚀")
-            self.launchSitesLabel.attributedText = makeLabel(title: "Launch Sites", text: "\(companyData.launch_sites)", icon: "🏗")
-            self.testSitesLabel.attributedText = makeLabel(title: "Test Sites", text: "\(companyData.test_sites)", icon: "🏗")
-            self.headquartersLabel.attributedText = makeLabel(title: "Location", text: "\(companyData.headquarters.address), \(companyData.headquarters.city), \(companyData.headquarters.state)", icon: "🏢")
+            foundedLabel.attributedText = makeLabel(title: "Founded", text: "\(companyData.founded)", icon: "📅")
+            valuationLabel.attributedText = makeLabel(title: "Valuation", text: "$\(companyData.valuation.formatMoney())", icon: "💰")
+            employeesLabel.attributedText = makeLabel(title: "Employees", text: "\(companyData.employees)", icon: "🧑‍🔧")
+            vehiclesLabel.attributedText = makeLabel(title: "Vehicles", text: "\(companyData.vehicles)", icon: "🚀")
+            launchSitesLabel.attributedText = makeLabel(title: "Launch Sites", text: "\(companyData.launch_sites)", icon: "🏗")
+            testSitesLabel.attributedText = makeLabel(title: "Test Sites", text: "\(companyData.test_sites)", icon: "🏗")
+            headquartersLabel.attributedText = makeLabel(title: "Location", text: "\(companyData.headquarters.address), \(companyData.headquarters.city), \(companyData.headquarters.state)", icon: "🏢")
             // People
-            self.founderLabel.attributedText = makeLabel(title: "Founder", text: companyData.founder, icon: "👨‍💻")
-            self.ceoLabel.attributedText = makeLabel(title: "CEO", text: companyData.ceo, icon: "👨‍💻")
-            self.ctoLabel.attributedText = makeLabel(title: "CTO", text: companyData.cto, icon: "👨‍💻")
-            self.ctoPropLabel.attributedText = makeLabel(title: "CTO Propulsion", text: companyData.cto_propulsion, icon: "👨‍💻")
-            self.cooLabel.attributedText = makeLabel(title: "COO", text: companyData.coo, icon: "👨‍💻")
+            founderLabel.attributedText = makeLabel(title: "Founder", text: companyData.founder, icon: "👨‍💻")
+            ceoLabel.attributedText = makeLabel(title: "CEO", text: companyData.ceo, icon: "👨‍💻")
+            ctoLabel.attributedText = makeLabel(title: "CTO", text: companyData.cto, icon: "👨‍💻")
+            ctoPropLabel.attributedText = makeLabel(title: "CTO Propulsion", text: companyData.cto_propulsion, icon: "👨‍💻")
+            cooLabel.attributedText = makeLabel(title: "COO", text: companyData.coo, icon: "👨‍💻")
             // Links
-            self.websiteLink.link = companyData.links.website
-            self.twitterLink.link = companyData.links.twitter
-            self.twitterElonLink.link = companyData.links.elon_twitter
-            self.flickrLink.link = companyData.links.flickr
+            websiteLink.link = companyData.links.website
+            twitterLink.link = companyData.links.twitter
+            twitterElonLink.link = companyData.links.elon_twitter
+            flickrLink.link = companyData.links.flickr
         }
     }
 }

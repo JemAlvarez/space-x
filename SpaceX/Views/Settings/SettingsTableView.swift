@@ -202,14 +202,14 @@ extension SettingsTableView {
 // MARK: - config
 extension SettingsTableView {
     private func configure() {
-        self.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
-        self.rowHeight = UITableView.automaticDimension
-        self.estimatedRowHeight = UITableView.automaticDimension
+        rowHeight = UITableView.automaticDimension
+        estimatedRowHeight = UITableView.automaticDimension
 
         tableFooterView = makeFooterView()
 
-        self.delegate = self
-        self.dataSource = self
+        delegate = self
+        dataSource = self
     }
 }

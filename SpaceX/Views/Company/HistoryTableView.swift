@@ -20,10 +20,10 @@ class HistoryTableView: UITableView {
 extension HistoryTableView {
     private func config() {
         // register cells
-        self.register(HistoryTableCell.self, forCellReuseIdentifier: HistoryTableCell.id)
+        register(HistoryTableCell.self, forCellReuseIdentifier: HistoryTableCell.id)
         // delegate & datasource
-        self.delegate = self
-        self.dataSource = self
+        delegate = self
+        dataSource = self
     }
 }
 
@@ -42,7 +42,7 @@ extension HistoryTableView: UITableViewDelegate, UITableViewDataSource {
 // MARK: - make cells
 extension HistoryTableView {
     private func makeHistoryCell(indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.dequeueReusableCell(withIdentifier: HistoryTableCell.id, for: indexPath)
+        let cell = dequeueReusableCell(withIdentifier: HistoryTableCell.id, for: indexPath)
 
         if let historyCell = cell as? HistoryTableCell {
             historyCell.historyData = historyData.reversed()[indexPath.row]

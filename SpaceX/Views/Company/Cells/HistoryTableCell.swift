@@ -95,8 +95,8 @@ extension HistoryTableCell {
 
     private func populateData() {
         if let historyData = historyData {
-            self.titleLabel.text = historyData.title ?? "-"
-            self.detailsLabel.text = historyData.details ?? "-"
+            titleLabel.text = historyData.title ?? "-"
+            detailsLabel.text = historyData.details ?? "-"
 
             let dateString = NSMutableAttributedString()
             dateString.append(NSAttributedString(string: "Date: ", attributes: [.font: UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: .fontFootnote, weight: .bold))]))
@@ -106,15 +106,15 @@ extension HistoryTableCell {
             } else {
                 dateString.append(NSAttributedString(string: "-", attributes: [.font: UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: .fontFootnote, weight: .light))]))
             }
-            self.dateLabel.attributedText = dateString
+            dateLabel.attributedText = dateString
 
             let utcDateString = NSMutableAttributedString()
             utcDateString.append(NSAttributedString(string: "UTC Date: ", attributes: [.font: UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: .fontFootnote, weight: .bold))]))
             utcDateString.append(NSAttributedString(string: historyData.event_date_utc ?? "-", attributes: [.font: UIFontMetrics(forTextStyle: .footnote).scaledFont(for: UIFont.systemFont(ofSize: .fontFootnote, weight: .light))]))
-            self.dateUTCLabel.attributedText = utcDateString
+            dateUTCLabel.attributedText = utcDateString
 
-            self.articleLinkButton.link = historyData.links.article ?? ""
-            self.articleLinkButton.layer.opacity = historyData.links.article == nil ? .opacityLow : 1
+            articleLinkButton.link = historyData.links.article ?? ""
+            articleLinkButton.layer.opacity = historyData.links.article == nil ? .opacityLow : 1
         }
     }
 }

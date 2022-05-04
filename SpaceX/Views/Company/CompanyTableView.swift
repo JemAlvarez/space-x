@@ -20,12 +20,14 @@ class CompanyTableView: UITableView {
 extension CompanyTableView {
     private func config() {
         // register cells
-        self.register(CompanyTableCell.self, forCellReuseIdentifier: CompanyTableCell.id)
+        register(CompanyTableCell.self, forCellReuseIdentifier: CompanyTableCell.id)
         // no dividers
-        self.separatorColor = .clear
+        separatorColor = .clear
         // delegate & datasource
-        self.delegate = self
-        self.dataSource = self
+        delegate = self
+        dataSource = self
+        // bottom padding
+        contentInset = UIEdgeInsets(top: 0, left: 0, bottom: .padding * 2, right: 0)
     }
 }
 
@@ -44,7 +46,7 @@ extension CompanyTableView: UITableViewDelegate, UITableViewDataSource {
 // MARK: - make cells
 extension CompanyTableView {
     private func makeCompanyCell(indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.dequeueReusableCell(withIdentifier: CompanyTableCell.id, for: indexPath)
+        let cell = dequeueReusableCell(withIdentifier: CompanyTableCell.id, for: indexPath)
 
         if let companyCell = cell as? CompanyTableCell, let companyData = companyData {
             companyCell.companyData = companyData

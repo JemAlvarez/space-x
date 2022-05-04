@@ -87,26 +87,26 @@ extension CompanyVC {
     }
 
     private func fetchCompanyData() async {
-        let companyData: [CompanyModel] = await APIModel.shared.fetch(for: .company)
-        if !companyData.isEmpty {
-            self.companyData = companyData[0]
+        let data: [CompanyModel] = await APIModel.shared.fetch(for: .company)
+        if !data.isEmpty {
+            companyData = data[0]
         }
     }
 
     private func fetchHistoryData() async {
-        let historyData: [HistoryModel] = await APIModel.shared.fetch(for: .history)
-        self.historyData = historyData
+        let data: [HistoryModel] = await APIModel.shared.fetch(for: .history)
+        historyData = data
     }
 
     private func dataDidLoad() {
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.25) { [weak self] in
             // remove spinner
-            self.ai.removeFromSuperview()
+            self?.ai.removeFromSuperview()
             // add tables and segmented control
-            self.configureTableViews()
+            self?.configureTableViews()
             // add data to tables
-            self.companyTableView.companyData = self.companyData
-            self.historyTableView.historyData = self.historyData
+            self?.companyTableView.companyData = self?.companyData
+            self?.historyTableView.historyData = self?.historyData ?? []
         }
     }
 }

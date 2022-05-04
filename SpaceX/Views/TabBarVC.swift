@@ -12,8 +12,6 @@ class TabBarVC: UITabBarController {
         removeScrollEdgeAppearance()
 
         setViewControllers(getTabViewControllers(), animated: true)
-
-        UserDefaults.standard.reset(for: [UserDefaults.Keys.hasShownOnboarding.rawValue])
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -58,7 +56,7 @@ extension TabBarVC {
 
         // all VCs
         let vcs = [launchesVC, crewVC, vehiclesVC, companyVC, settingsVC]
-//        let vcs = [settingsVC, crewVC, vehiclesVC, companyVC, launchesVC]
+//        let vcs = [crewVC, vehiclesVC, companyVC, launchesVC, settingsVC]
 
         // set VCs titles
         for i in 0..<tabs.count {

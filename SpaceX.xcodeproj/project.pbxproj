@@ -20,6 +20,9 @@
 		CA241AE42810EC2D008005DE /* AlternateIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AE32810EC2D008005DE /* AlternateIconCell.swift */; };
 		CA241AE628110B7C008005DE /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AE528110B7C008005DE /* UITableViewCellExtensions.swift */; };
 		CA241AE9281B4981008005DE /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AE8281B4981008005DE /* OnboardingVC.swift */; };
+		CA241AEE28220477008005DE /* CrewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AED28220477008005DE /* CrewCollectionView.swift */; };
+		CA241AF0282205B1008005DE /* CrewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AEF282205B1008005DE /* CrewCell.swift */; };
+		CA241AF228223206008005DE /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AF128223206008005DE /* StringExtensions.swift */; };
 		CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584992808D18900CF6EA3 /* AppDelegate.swift */; };
 		CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */; };
 		CA6584A12808D18900CF6EA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA65849F2808D18900CF6EA3 /* LaunchScreen.storyboard */; };
@@ -62,6 +65,9 @@
 		CA241AE32810EC2D008005DE /* AlternateIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternateIconCell.swift; sourceTree = "<group>"; };
 		CA241AE528110B7C008005DE /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
 		CA241AE8281B4981008005DE /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		CA241AED28220477008005DE /* CrewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCollectionView.swift; sourceTree = "<group>"; };
+		CA241AEF282205B1008005DE /* CrewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCell.swift; sourceTree = "<group>"; };
+		CA241AF128223206008005DE /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		CA6584962808D18900CF6EA3 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6584992808D18900CF6EA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 				CA241AD4280F453C008005DE /* UIViewExtensions.swift */,
 				CA241ADB2810E42B008005DE /* UserDefaultsExtensions.swift */,
 				CA241AE528110B7C008005DE /* UITableViewCellExtensions.swift */,
+				CA241AF128223206008005DE /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -150,6 +157,16 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		CA241AEA2822024A008005DE /* Crew */ = {
+			isa = PBXGroup;
+			children = (
+				CA6584D9280D167A00CF6EA3 /* CrewVC.swift */,
+				CA241AED28220477008005DE /* CrewCollectionView.swift */,
+				CA241AEF282205B1008005DE /* CrewCell.swift */,
+			);
+			path = Crew;
+			sourceTree = "<group>";
+		};
 		CA65848D2808D18900CF6EA3 = {
 			isa = PBXGroup;
 			children = (
@@ -182,12 +199,12 @@
 		CA6584B02808D44100CF6EA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA241AEA2822024A008005DE /* Crew */,
 				CA241AE7281116DE008005DE /* Shared */,
 				CA241AD82810E24B008005DE /* Settings */,
 				CA6584E4280DE09500CF6EA3 /* Company */,
 				CA6584D5280D144500CF6EA3 /* TabBarVC.swift */,
 				CA6584D7280D164D00CF6EA3 /* LaunchesVC.swift */,
-				CA6584D9280D167A00CF6EA3 /* CrewVC.swift */,
 				CA6584DB280D169800CF6EA3 /* VehiclesVC.swift */,
 				CA241AE8281B4981008005DE /* OnboardingVC.swift */,
 			);
@@ -346,6 +363,7 @@
 				CA241AE9281B4981008005DE /* OnboardingVC.swift in Sources */,
 				CA6584DE280D16CA00CF6EA3 /* CompanyVC.swift in Sources */,
 				CA241ACD280E56F9008005DE /* UILinkButton.swift in Sources */,
+				CA241AF228223206008005DE /* StringExtensions.swift in Sources */,
 				CA6584CA280A3B5C00CF6EA3 /* PayloadModel.swift in Sources */,
 				CA241AC9280DF47A008005DE /* CGFloatExtensions.swift in Sources */,
 				CA6584CE280A404100CF6EA3 /* ShipModel.swift in Sources */,
@@ -358,6 +376,7 @@
 				CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */,
 				CA6584C0280A29A900CF6EA3 /* CoreModel.swift in Sources */,
 				CA6584C4280A2C6700CF6EA3 /* DragonModel.swift in Sources */,
+				CA241AF0282205B1008005DE /* CrewCell.swift in Sources */,
 				CA6584D2280A476B00CF6EA3 /* LaunchModel.swift in Sources */,
 				CA6584E1280D16F000CF6EA3 /* SettingsVC.swift in Sources */,
 				CA241AD5280F453C008005DE /* UIViewExtensions.swift in Sources */,
@@ -368,6 +387,7 @@
 				CA6584C6280A304400CF6EA3 /* LandPadModel.swift in Sources */,
 				CA6584E6280DE0D000CF6EA3 /* CompanyTableCell.swift in Sources */,
 				CA241AE628110B7C008005DE /* UITableViewCellExtensions.swift in Sources */,
+				CA241AEE28220477008005DE /* CrewCollectionView.swift in Sources */,
 				CA6584DA280D167A00CF6EA3 /* CrewVC.swift in Sources */,
 				CA241AE02810EA13008005DE /* App.swift in Sources */,
 				CA241ADA2810E26E008005DE /* SettingsTableView.swift in Sources */,
