@@ -3,14 +3,13 @@
 import UIKit
 import JsHelper
 
-class TabBarVC: UITabBarController {
+class TabBarVC: UITabBarController, UITabBarControllerDelegate {
     private let tabs: [String] = ["Launches", "Crew", "Vehicles", "Company", "Settings"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        removeScrollEdgeAppearance()
-
+        delegate = self
         setViewControllers(getTabViewControllers(), animated: true)
     }
 
@@ -29,15 +28,6 @@ extension TabBarVC {
         
         if !hasShownOnboarding {
             present(OnboardingVC(), animated: true)
-        }
-    }
-
-    // MARK: - remove scroll edge appearance
-    func removeScrollEdgeAppearance() {
-        let appearance = UITabBarAppearance()
-        appearance.configureWithDefaultBackground()
-        if #available(iOS 15.0, *) {
-            tabBar.scrollEdgeAppearance = appearance
         }
     }
 
@@ -66,5 +56,22 @@ extension TabBarVC {
         }
 
         return vcs
+    }
+}
+
+// MARK: - delegate
+extension TabBarVC {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if viewController.tabBarItem.tag == 3 {
+            if #available(iOS 15.0, *) {
+                tabBar.scrollEdgeAppearance = UITabBarAppearance()
+            }
+        } else {
+            if #available(iOS 15.0, *) {
+                let appearance = UITabBarAppearance()
+                appearance.configureWithTransparentBackground()
+                tabBar.scrollEdgeAppearance = appearance
+            }
+        }
     }
 }
