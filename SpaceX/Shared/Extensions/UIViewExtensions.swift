@@ -43,4 +43,31 @@ extension UIView {
             completion(UIImage(cgImage: downsampledImg))
         }
     }
+
+    // get cached image data
+    func getCachedImageData(imageUrl: String?, completion: @escaping (Data) -> Void) {
+        var cachedImages: [String: Data] = UserDefaults.standard.object(forKey: UserDefaults.Keys.cachedImages.rawValue) as? [String: Data] ?? [:]
+        let foundImage = cachedImages.first(where: { $0.key == imageUrl })
+
+        if let foundImage = foundImage {
+            // used cached image
+            completion(foundImage.value)
+        } else {
+            // download image and cache
+            DispatchQueue.global().async {
+                if let url = imageUrl {
+                    let data = url.getURLData()
+
+                    if let data = data {
+                        cachedImages[url] = data
+                        UserDefaults.standard.set(cachedImages, forKey: UserDefaults.Keys.cachedImages.rawValue)
+
+                        DispatchQueue.main.async {
+                            completion(data)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

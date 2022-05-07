@@ -9,7 +9,7 @@ protocol UICollectionViewNavigation {
 
 class CrewVC: UIViewController, UICollectionViewNavigation {
     // MARK: - data
-    var crewData: [CrewModel]? {
+    private var crewData: [CrewModel]? {
         didSet {
             guard let crewData = crewData else { return }
             crewCollectionView.crew = crewData.reversed()

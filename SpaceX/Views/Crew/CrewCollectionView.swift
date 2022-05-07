@@ -6,11 +6,6 @@ class CrewCollectionView: UICollectionView {
     var navigationDelegate: UICollectionViewNavigation?
 
     var crew: [CrewModel]?
-    var profileImages: [String: Data] = UserDefaults.standard.object(forKey: UserDefaults.Keys.cachedImages.rawValue) as? [String: Data] ?? [:] {
-        didSet {
-            UserDefaults.standard.set(profileImages, forKey: UserDefaults.Keys.cachedImages.rawValue)
-        }
-    }
 
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -37,9 +32,9 @@ extension CrewCollectionView: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .red
-        navigationDelegate?.pushViewController(with: vc)
+        if let crew = crew {
+            navigationDelegate?.pushViewController(with: CrewInfoVC(crew: crew[indexPath.row]))
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -49,26 +44,9 @@ extension CrewCollectionView: UICollectionViewDataSource, UICollectionViewDelega
 
         if let crewCell = crewCell, let crew = crew {
             let currentCrew = crew[indexPath.row]
-            let profileImage = profileImages.first(where: { $0.key == currentCrew.image })
 
-            if let profileImage = profileImage {
-                // used cached image
-                crewCell.profileImageData = profileImage.value
-            } else {
-                // download image and cache
-                DispatchQueue.global().async { [weak self] in
-                    if let url = currentCrew.image {
-                        let data = url.getURLData()
-
-                        if let data = data {
-                            self?.profileImages[url] = data
-
-                            DispatchQueue.main.async {
-                                crewCell.profileImageData = data
-                            }
-                        }
-                    }
-                }
+            getCachedImageData(imageUrl: currentCrew.image) { imageData in
+                crewCell.profileImageData = imageData
             }
 
             crewCell.name = currentCrew.name

@@ -70,12 +70,14 @@ class CrewCell: UICollectionViewCell {
         nameLabel.textAlignment = .center
         nameLabel.font = .preferredFont(forTextStyle: .headline)
         nameLabel.numberOfLines = 0
+        nameLabel.adjustsFontForContentSizeCategory = true
 
         // more info button
         moreInfoLabel.text = "More Info"
         moreInfoLabel.textColor = .secondaryLabel
         moreInfoLabel.textAlignment = .center
         moreInfoLabel.font = .preferredFont(forTextStyle: .subheadline)
+        moreInfoLabel.adjustsFontForContentSizeCategory = true
 
         // constraint views
         NSLayoutConstraint.activate([

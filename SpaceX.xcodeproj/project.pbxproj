@@ -23,6 +23,10 @@
 		CA241AEE28220477008005DE /* CrewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AED28220477008005DE /* CrewCollectionView.swift */; };
 		CA241AF0282205B1008005DE /* CrewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AEF282205B1008005DE /* CrewCell.swift */; };
 		CA241AF228223206008005DE /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AF128223206008005DE /* StringExtensions.swift */; };
+		CA241AF7282609C4008005DE /* CrewInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AF6282609C4008005DE /* CrewInfoVC.swift */; };
+		CA241AF9282618B9008005DE /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AF8282618B9008005DE /* UIViewControllerExtensions.swift */; };
+		CA241AFC28262360008005DE /* LaunchInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AFB28262360008005DE /* LaunchInfoVC.swift */; };
+		CA241AFE282634C0008005DE /* NavigateTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AFD282634C0008005DE /* NavigateTapGesture.swift */; };
 		CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584992808D18900CF6EA3 /* AppDelegate.swift */; };
 		CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */; };
 		CA6584A12808D18900CF6EA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA65849F2808D18900CF6EA3 /* LaunchScreen.storyboard */; };
@@ -68,6 +72,10 @@
 		CA241AED28220477008005DE /* CrewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCollectionView.swift; sourceTree = "<group>"; };
 		CA241AEF282205B1008005DE /* CrewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCell.swift; sourceTree = "<group>"; };
 		CA241AF128223206008005DE /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		CA241AF6282609C4008005DE /* CrewInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewInfoVC.swift; sourceTree = "<group>"; };
+		CA241AF8282618B9008005DE /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		CA241AFB28262360008005DE /* LaunchInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInfoVC.swift; sourceTree = "<group>"; };
+		CA241AFD282634C0008005DE /* NavigateTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateTapGesture.swift; sourceTree = "<group>"; };
 		CA6584962808D18900CF6EA3 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6584992808D18900CF6EA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +126,7 @@
 				CA241ADB2810E42B008005DE /* UserDefaultsExtensions.swift */,
 				CA241AE528110B7C008005DE /* UITableViewCellExtensions.swift */,
 				CA241AF128223206008005DE /* StringExtensions.swift */,
+				CA241AF8282618B9008005DE /* UIViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,8 +172,18 @@
 				CA6584D9280D167A00CF6EA3 /* CrewVC.swift */,
 				CA241AED28220477008005DE /* CrewCollectionView.swift */,
 				CA241AEF282205B1008005DE /* CrewCell.swift */,
+				CA241AF6282609C4008005DE /* CrewInfoVC.swift */,
 			);
 			path = Crew;
+			sourceTree = "<group>";
+		};
+		CA241AFA2826234B008005DE /* Launches */ = {
+			isa = PBXGroup;
+			children = (
+				CA6584D7280D164D00CF6EA3 /* LaunchesVC.swift */,
+				CA241AFB28262360008005DE /* LaunchInfoVC.swift */,
+			);
+			path = Launches;
 			sourceTree = "<group>";
 		};
 		CA65848D2808D18900CF6EA3 = {
@@ -199,12 +218,12 @@
 		CA6584B02808D44100CF6EA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA241AFA2826234B008005DE /* Launches */,
 				CA241AEA2822024A008005DE /* Crew */,
 				CA241AE7281116DE008005DE /* Shared */,
 				CA241AD82810E24B008005DE /* Settings */,
 				CA6584E4280DE09500CF6EA3 /* Company */,
 				CA6584D5280D144500CF6EA3 /* TabBarVC.swift */,
-				CA6584D7280D164D00CF6EA3 /* LaunchesVC.swift */,
 				CA6584DB280D169800CF6EA3 /* VehiclesVC.swift */,
 				CA241AE8281B4981008005DE /* OnboardingVC.swift */,
 			);
@@ -236,6 +255,7 @@
 			children = (
 				CA241AC7280DF464008005DE /* Extensions */,
 				CA6584B82808D71700CF6EA3 /* APIModel.swift */,
+				CA241AFD282634C0008005DE /* NavigateTapGesture.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -360,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA241ACF280F2F95008005DE /* HistoryTableCell.swift in Sources */,
+				CA241AF7282609C4008005DE /* CrewInfoVC.swift in Sources */,
 				CA241AE9281B4981008005DE /* OnboardingVC.swift in Sources */,
 				CA6584DE280D16CA00CF6EA3 /* CompanyVC.swift in Sources */,
 				CA241ACD280E56F9008005DE /* UILinkButton.swift in Sources */,
@@ -387,9 +408,12 @@
 				CA6584C6280A304400CF6EA3 /* LandPadModel.swift in Sources */,
 				CA6584E6280DE0D000CF6EA3 /* CompanyTableCell.swift in Sources */,
 				CA241AE628110B7C008005DE /* UITableViewCellExtensions.swift in Sources */,
+				CA241AF9282618B9008005DE /* UIViewControllerExtensions.swift in Sources */,
 				CA241AEE28220477008005DE /* CrewCollectionView.swift in Sources */,
 				CA6584DA280D167A00CF6EA3 /* CrewVC.swift in Sources */,
 				CA241AE02810EA13008005DE /* App.swift in Sources */,
+				CA241AFE282634C0008005DE /* NavigateTapGesture.swift in Sources */,
+				CA241AFC28262360008005DE /* LaunchInfoVC.swift in Sources */,
 				CA241ADA2810E26E008005DE /* SettingsTableView.swift in Sources */,
 				CA6584BE2808EDA500CF6EA3 /* CompanyModel.swift in Sources */,
 				CA6584D0280A45CC00CF6EA3 /* HistoryModel.swift in Sources */,

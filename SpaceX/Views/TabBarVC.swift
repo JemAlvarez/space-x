@@ -55,8 +55,8 @@ extension TabBarVC {
         let settingsVC = UINavigationController(rootViewController: SettingsVC())
 
         // all VCs
-//        let vcs = [launchesVC, crewVC, vehiclesVC, companyVC, settingsVC]
-        let vcs = [crewVC, vehiclesVC, companyVC, launchesVC, settingsVC]
+        let vcs = [launchesVC, crewVC, vehiclesVC, companyVC, settingsVC]
+//        let vcs = [crewVC, vehiclesVC, companyVC, launchesVC, settingsVC]
 
         // set VCs titles
         for i in 0..<tabs.count {
