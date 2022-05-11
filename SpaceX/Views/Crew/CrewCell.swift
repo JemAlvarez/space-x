@@ -69,15 +69,15 @@ class CrewCell: UICollectionViewCell {
         nameLabel.text = "-"
         nameLabel.textAlignment = .center
         nameLabel.font = .preferredFont(forTextStyle: .headline)
-        nameLabel.numberOfLines = 0
+        nameLabel.numberOfLines = 2
         nameLabel.adjustsFontForContentSizeCategory = true
+        nameLabel.adjustsFontSizeToFitWidth = true
 
         // more info button
         moreInfoLabel.text = "More Info"
         moreInfoLabel.textColor = .secondaryLabel
         moreInfoLabel.textAlignment = .center
-        moreInfoLabel.font = .preferredFont(forTextStyle: .subheadline)
-        moreInfoLabel.adjustsFontForContentSizeCategory = true
+        moreInfoLabel.font = .systemFont(ofSize: .fontSubheadline)
 
         // constraint views
         NSLayoutConstraint.activate([
@@ -89,7 +89,9 @@ class CrewCell: UICollectionViewCell {
             moreInfoLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -(.padding)),
             moreInfoLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .padding),
             moreInfoLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(.padding)),
+            moreInfoLabel.heightAnchor.constraint(equalToConstant: 20),
 
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
             nameLabel.bottomAnchor.constraint(equalTo: moreInfoLabel.topAnchor, constant: -(.padding/2)),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .padding),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(.padding))

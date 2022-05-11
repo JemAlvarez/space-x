@@ -57,6 +57,7 @@ extension HistoryTableCell {
         // link
         addSubview(articleLinkButton)
         articleLinkButton.setTitle("🔗", for: .normal)
+        articleLinkButton.titleLabel?.adjustsFontSizeToFitWidth = true
         articleLinkButton.backgroundColor = .systemBlue
         articleLinkButton.layer.cornerRadius = linkButtonWidth / 2
         articleLinkButton.titleLabel?.font = .preferredFont(forTextStyle: .body)

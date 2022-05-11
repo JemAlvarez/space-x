@@ -131,7 +131,7 @@ extension CrewInfoVC {
 
                 // launch
                 for launch in launches {
-                    let launchLine = makeLaunchLine(launch, withDivider: launch.id != launches.last?.id)
+                    let launchLine = makeLaunchLine(launch)
                     container.addArrangedSubview(launchLine)
                 }
 
@@ -140,7 +140,7 @@ extension CrewInfoVC {
         }
     }
 
-    private func makeLaunchLine(_ launch: LaunchModel, withDivider: Bool = true) -> UIView {
+    private func makeLaunchLine(_ launch: LaunchModel) -> UIView {
         let tapGesture = NavigateTapGesture(target: self, action: #selector(navigateToLaunch(_:)))
         tapGesture.viewController = LaunchInfoVC(launch: launch)
 
@@ -148,7 +148,6 @@ extension CrewInfoVC {
         @TAMIC var iv = UIImageView()
         @TAMIC var name = UILabel()
         @TAMIC var time = UILabel()
-        @TAMIC var divider = UIView()
         @TAMIC var navigationIndicator = UIImageView()
 
         container.addGestureRecognizer(tapGesture)
@@ -156,6 +155,9 @@ extension CrewInfoVC {
         container.addSubview(name)
         container.addSubview(time)
         container.addSubview(navigationIndicator)
+
+        // container
+        container.topAnchor.constraint(equalTo: name.topAnchor).isActive = true
 
         // image view
         iv.contentMode = .center
@@ -172,31 +174,35 @@ extension CrewInfoVC {
         }
         NSLayoutConstraint.activate([
             iv.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-            iv.topAnchor.constraint(equalTo: container.topAnchor),
-            iv.widthAnchor.constraint(equalToConstant: 40),
-            iv.heightAnchor.constraint(equalToConstant: 40)
+            iv.widthAnchor.constraint(equalToConstant: 25),
+            iv.heightAnchor.constraint(equalToConstant: 25),
+            iv.centerYAnchor.constraint(equalTo: container.centerYAnchor)
         ])
 
         // name
         name.text = launch.name
         name.font = .preferredFont(forTextStyle: .headline)
+        name.adjustsFontSizeToFitWidth = true
         name.adjustsFontForContentSizeCategory = true
         NSLayoutConstraint.activate([
-            name.leadingAnchor.constraint(equalTo: iv.trailingAnchor, constant: .padding)
+            name.leadingAnchor.constraint(equalTo: iv.trailingAnchor, constant: .padding),
+            name.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30)
         ])
 
         // time
         time.text = Date(timeIntervalSince1970: TimeInterval(launch.date_unix)).getString(with: .commaWithWeekday)
         time.textColor = .secondaryLabel
         time.font = .preferredFont(forTextStyle: .subheadline)
+        time.adjustsFontSizeToFitWidth = true
         time.adjustsFontForContentSizeCategory = true
         NSLayoutConstraint.activate([
             time.leadingAnchor.constraint(equalTo: iv.trailingAnchor, constant: .padding),
-            time.topAnchor.constraint(equalTo: name.bottomAnchor, constant: .padding / 5)
+            time.topAnchor.constraint(equalTo: name.bottomAnchor),
+            time.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30)
         ])
 
         // navigation indicator image
-        navigationIndicator.image = UIImage(systemName: "chevron.right")
+        navigationIndicator.image = UIImage(systemName: "chevron.right")?.withTintColor(UIColor.secondaryLabel)
         navigationIndicator.contentMode = .center
         NSLayoutConstraint.activate([
             navigationIndicator.trailingAnchor.constraint(equalTo: container.trailingAnchor),
@@ -205,21 +211,7 @@ extension CrewInfoVC {
             navigationIndicator.widthAnchor.constraint(equalToConstant: 20)
         ])
 
-        // divider
-        if withDivider {
-            container.addSubview(divider)
-            divider.backgroundColor = .tertiarySystemBackground
-            NSLayoutConstraint.activate([
-                divider.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-                divider.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-                divider.topAnchor.constraint(equalTo: iv.bottomAnchor, constant: .padding / 2),
-                divider.heightAnchor.constraint(equalToConstant: 1)
-            ])
-
-            container.bottomAnchor.constraint(equalTo: divider.bottomAnchor).isActive = true
-        } else {
-            container.bottomAnchor.constraint(equalTo: iv.bottomAnchor).isActive = true
-        }
+        container.bottomAnchor.constraint(equalTo: time.bottomAnchor).isActive = true
 
         return container
     }

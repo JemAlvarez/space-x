@@ -124,6 +124,7 @@ extension SettingsTableView {
         footerLabel.textColor = .secondaryLabel
         footerLabel.textAlignment = .center
         footerLabel.font = .preferredFont(forTextStyle: .footnote)
+        footerLabel.adjustsFontForContentSizeCategory = true
         container.addSubview(footerLabel)
         let footerLabelWidthAnchor = footerLabel.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -(.padding * 2))
         footerLabelWidthAnchor.priority = UILayoutPriority(750)
@@ -133,6 +134,7 @@ extension SettingsTableView {
         versionLabel.textColor = .secondaryLabel
         versionLabel.textAlignment = .center
         versionLabel.font = .preferredFont(forTextStyle: .footnote)
+        versionLabel.adjustsFontForContentSizeCategory = true
         container.addSubview(versionLabel)
         let versionLabelWidthAnchor = versionLabel.widthAnchor.constraint(equalTo: container.widthAnchor, constant: -(.padding * 2))
         versionLabelWidthAnchor.priority = UILayoutPriority(750)
@@ -162,10 +164,11 @@ extension SettingsTableView {
         // image
         imageContainer.backgroundColor = backgroundColor.withAlphaComponent(.opacityMedium)
         imageContainer.layer.cornerRadius = 8
-        image.image = UIImage(systemName: icon)?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        image.image = UIImage(systemName: icon, withConfiguration: UIImage.SymbolConfiguration(scale: .small))?.withTintColor(.white, renderingMode: .alwaysOriginal)
         // label
         label.text = text
         label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontSizeToFitWidth = true
         // link image
         linkImage.image = UIImage(systemName: "arrow.up.forward", withConfiguration: UIImage.SymbolConfiguration(pointSize: .fontBody, weight: .bold, scale: .large))
 
@@ -176,24 +179,22 @@ extension SettingsTableView {
         cell.addSubview(linkImage)
 
         // constraints
-        let imageHeightAnchor = imageContainer.heightAnchor.constraint(equalToConstant: 35)
+        let imageHeightAnchor = imageContainer.heightAnchor.constraint(equalToConstant: 30)
         imageHeightAnchor.priority = UILayoutPriority(999)
 
         NSLayoutConstraint.activate([
-            imageContainer.topAnchor.constraint(equalTo: cell.topAnchor, constant: .padding / 2),
+            imageContainer.centerYAnchor.constraint(equalTo: cell.centerYAnchor),
             imageContainer.leadingAnchor.constraint(equalTo: cell.layoutMarginsGuide.leadingAnchor),
-            imageContainer.widthAnchor.constraint(equalToConstant: 35),
+            imageContainer.widthAnchor.constraint(equalToConstant: 30),
             imageHeightAnchor,
             image.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor),
             image.centerYAnchor.constraint(equalTo: imageContainer.centerYAnchor),
             label.leadingAnchor.constraint(equalTo: imageContainer.trailingAnchor, constant: .padding),
+            label.trailingAnchor.constraint(equalTo: cell.layoutMarginsGuide.trailingAnchor, constant: -50),
             label.centerYAnchor.constraint(equalTo: cell.centerYAnchor),
             linkImage.trailingAnchor.constraint(equalTo: cell.layoutMarginsGuide.trailingAnchor),
             linkImage.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
         ])
-
-        // resize cell
-        cell.makeCellResizable(with: imageContainer)
 
         return cell
     }
@@ -202,10 +203,8 @@ extension SettingsTableView {
 // MARK: - config
 extension SettingsTableView {
     private func configure() {
-        rowHeight = UITableView.automaticDimension
-        estimatedRowHeight = UITableView.automaticDimension
-
         tableFooterView = makeFooterView()
+        self.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: .padding * 2, right: 0)
 
         delegate = self
         dataSource = self

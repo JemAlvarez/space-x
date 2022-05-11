@@ -59,10 +59,12 @@ extension AlternateIconCell {
         addSubview(iconNameLabel)
         iconNameLabel.text = imageName
         iconNameLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .systemFont(ofSize: .fontBody, weight: .semibold))
+        iconNameLabel.adjustsFontSizeToFitWidth = true
 
         NSLayoutConstraint.activate([
             iconNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            iconNameLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: .padding)
+            iconNameLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: .padding),
+            iconNameLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
         ])
     }
 }
