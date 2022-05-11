@@ -102,7 +102,7 @@ class CrewCell: UICollectionViewCell {
         nameLabel.text = name
         imageView.contentMode = .scaleAspectFill
         if let profileImageData = profileImageData {
-            downsample(with: profileImageData, to: CGSize(width: 170, height: 170)) { [weak self] img in
+            ImageCacher.downsample(with: profileImageData, to: CGSize(width: 170, height: 170)) { [weak self] img in
                 DispatchQueue.main.async {
                     self?.imageView.image = img
                 }

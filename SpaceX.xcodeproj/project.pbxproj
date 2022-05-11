@@ -24,9 +24,9 @@
 		CA241AF0282205B1008005DE /* CrewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AEF282205B1008005DE /* CrewCell.swift */; };
 		CA241AF228223206008005DE /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AF128223206008005DE /* StringExtensions.swift */; };
 		CA241AF7282609C4008005DE /* CrewInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AF6282609C4008005DE /* CrewInfoVC.swift */; };
-		CA241AF9282618B9008005DE /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AF8282618B9008005DE /* UIViewControllerExtensions.swift */; };
 		CA241AFC28262360008005DE /* LaunchInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AFB28262360008005DE /* LaunchInfoVC.swift */; };
 		CA241AFE282634C0008005DE /* NavigateTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241AFD282634C0008005DE /* NavigateTapGesture.swift */; };
+		CA241B24282C6D2F008005DE /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA241B23282C6D2F008005DE /* ImageCacher.swift */; };
 		CA65849A2808D18900CF6EA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6584992808D18900CF6EA3 /* AppDelegate.swift */; };
 		CA65849C2808D18900CF6EA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */; };
 		CA6584A12808D18900CF6EA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA65849F2808D18900CF6EA3 /* LaunchScreen.storyboard */; };
@@ -73,9 +73,9 @@
 		CA241AEF282205B1008005DE /* CrewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCell.swift; sourceTree = "<group>"; };
 		CA241AF128223206008005DE /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		CA241AF6282609C4008005DE /* CrewInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewInfoVC.swift; sourceTree = "<group>"; };
-		CA241AF8282618B9008005DE /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		CA241AFB28262360008005DE /* LaunchInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInfoVC.swift; sourceTree = "<group>"; };
 		CA241AFD282634C0008005DE /* NavigateTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateTapGesture.swift; sourceTree = "<group>"; };
+		CA241B23282C6D2F008005DE /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		CA6584962808D18900CF6EA3 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6584992808D18900CF6EA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA65849B2808D18900CF6EA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,7 +126,6 @@
 				CA241ADB2810E42B008005DE /* UserDefaultsExtensions.swift */,
 				CA241AE528110B7C008005DE /* UITableViewCellExtensions.swift */,
 				CA241AF128223206008005DE /* StringExtensions.swift */,
-				CA241AF8282618B9008005DE /* UIViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -186,6 +185,26 @@
 			path = Launches;
 			sourceTree = "<group>";
 		};
+		CA241B22282C6D0F008005DE /* API Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA6584BA2808DF6200CF6EA3 /* CapsuleModel.swift */,
+				CA6584BD2808EDA500CF6EA3 /* CompanyModel.swift */,
+				CA6584BF280A29A900CF6EA3 /* CoreModel.swift */,
+				CA6584C1280A2B8800CF6EA3 /* CrewModel.swift */,
+				CA6584C3280A2C6700CF6EA3 /* DragonModel.swift */,
+				CA6584C5280A304400CF6EA3 /* LandPadModel.swift */,
+				CA6584C7280A335800CF6EA3 /* LaunchPadModel.swift */,
+				CA6584C9280A3B5C00CF6EA3 /* PayloadModel.swift */,
+				CA6584CB280A3DAE00CF6EA3 /* RoadsterModel.swift */,
+				CA6584CD280A404100CF6EA3 /* ShipModel.swift */,
+				CA6584CF280A45CC00CF6EA3 /* HistoryModel.swift */,
+				CA6584D1280A476B00CF6EA3 /* LaunchModel.swift */,
+				CA6584D3280A502D00CF6EA3 /* RocketModel.swift */,
+			);
+			path = "API Data Models";
+			sourceTree = "<group>";
+		};
 		CA65848D2808D18900CF6EA3 = {
 			isa = PBXGroup;
 			children = (
@@ -233,19 +252,9 @@
 		CA6584B22808D46800CF6EA3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CA6584BA2808DF6200CF6EA3 /* CapsuleModel.swift */,
-				CA6584BD2808EDA500CF6EA3 /* CompanyModel.swift */,
-				CA6584BF280A29A900CF6EA3 /* CoreModel.swift */,
-				CA6584C1280A2B8800CF6EA3 /* CrewModel.swift */,
-				CA6584C3280A2C6700CF6EA3 /* DragonModel.swift */,
-				CA6584C5280A304400CF6EA3 /* LandPadModel.swift */,
-				CA6584C7280A335800CF6EA3 /* LaunchPadModel.swift */,
-				CA6584C9280A3B5C00CF6EA3 /* PayloadModel.swift */,
-				CA6584CB280A3DAE00CF6EA3 /* RoadsterModel.swift */,
-				CA6584CD280A404100CF6EA3 /* ShipModel.swift */,
-				CA6584CF280A45CC00CF6EA3 /* HistoryModel.swift */,
-				CA6584D1280A476B00CF6EA3 /* LaunchModel.swift */,
-				CA6584D3280A502D00CF6EA3 /* RocketModel.swift */,
+				CA241B22282C6D0F008005DE /* API Data Models */,
+				CA6584B82808D71700CF6EA3 /* APIModel.swift */,
+				CA241B23282C6D2F008005DE /* ImageCacher.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				CA241AC7280DF464008005DE /* Extensions */,
-				CA6584B82808D71700CF6EA3 /* APIModel.swift */,
 				CA241AFD282634C0008005DE /* NavigateTapGesture.swift */,
 			);
 			path = Shared;
@@ -388,6 +396,7 @@
 				CA6584CA280A3B5C00CF6EA3 /* PayloadModel.swift in Sources */,
 				CA241AC9280DF47A008005DE /* CGFloatExtensions.swift in Sources */,
 				CA6584CE280A404100CF6EA3 /* ShipModel.swift in Sources */,
+				CA241B24282C6D2F008005DE /* ImageCacher.swift in Sources */,
 				CA6584CC280A3DAE00CF6EA3 /* RoadsterModel.swift in Sources */,
 				CA6584DC280D169800CF6EA3 /* VehiclesVC.swift in Sources */,
 				CA241AD3280F33C2008005DE /* HistoryTableView.swift in Sources */,
@@ -408,7 +417,6 @@
 				CA6584C6280A304400CF6EA3 /* LandPadModel.swift in Sources */,
 				CA6584E6280DE0D000CF6EA3 /* CompanyTableCell.swift in Sources */,
 				CA241AE628110B7C008005DE /* UITableViewCellExtensions.swift in Sources */,
-				CA241AF9282618B9008005DE /* UIViewControllerExtensions.swift in Sources */,
 				CA241AEE28220477008005DE /* CrewCollectionView.swift in Sources */,
 				CA6584DA280D167A00CF6EA3 /* CrewVC.swift in Sources */,
 				CA241AE02810EA13008005DE /* App.swift in Sources */,

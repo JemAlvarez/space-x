@@ -45,7 +45,7 @@ extension CrewCollectionView: UICollectionViewDataSource, UICollectionViewDelega
         if let crewCell = crewCell, let crew = crew {
             let currentCrew = crew[indexPath.row]
 
-            getCachedImageData(imageUrl: currentCrew.image) { imageData in
+            ImageCacher.shared.getCachedImageData(imageUrl: currentCrew.image) { imageData in
                 crewCell.profileImageData = imageData
             }
 

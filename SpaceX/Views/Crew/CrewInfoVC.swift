@@ -68,8 +68,8 @@ extension CrewInfoVC {
         )?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal)
         iv.clipsToBounds = true
         iv.layer.cornerRadius = imageSize.width / 2
-        getCachedImageData(imageUrl: crew.image) { imageData in
-            self.downsample(with: imageData, to: self.imageSize) { img in
+        ImageCacher.shared.getCachedImageData(imageUrl: crew.image) { imageData in
+            ImageCacher.downsample(with: imageData, to: self.imageSize) { img in
                 DispatchQueue.main.async {
                     iv.contentMode = .scaleAspectFill
                     iv.image = img
@@ -166,7 +166,7 @@ extension CrewInfoVC {
             withConfiguration: UIImage.SymbolConfiguration(scale: .large)
         )?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal)
         iv.clipsToBounds = true
-        getCachedImageData(imageUrl: launch.links.patch.small) { imageData in
+        ImageCacher.shared.getCachedImageData(imageUrl: launch.links.patch.small) { imageData in
             DispatchQueue.main.async {
                 iv.contentMode = .scaleAspectFill
                 iv.image = UIImage(data: imageData)
